@@ -9,157 +9,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de685b39-379c-4b77-b318-3445e116ba37" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_web_2_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarBrandController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarDetailsDateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarMaketDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarSizeConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/PServiceProjectConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/PShopItemConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopCosmetologyDetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopCosmetologyServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopDrawMoneyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopEvaluationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopItemDataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopItemDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopMaintainServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopShareGainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopTotalServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopUpkeepDetailsItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopUpkeepServiceDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopUpkeepSubServiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/UInvoiceTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/UOderSystemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/UOperationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarBrandJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarBrandJsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarDetailsDataJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarDetailsDataJsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarDetailsDataJsonDataSubJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarDetailsDataJsonDataSubJsonDetailJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarMaketDetailsJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarMaketDetailsJsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarMaketDetailsJsonDataJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarSizeDetailJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetCarSizeDetailJsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetShopItemCarListJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetShopItemCarListJsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/NetShopItemCarListJsonDataJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/ShopInfoPicsJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/netJson/ShopItemByDetailIdsJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/NetCarBrandService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/NetCarDetailsDataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/NetCarMaketDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/NetCarSizeConfigService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/NetCarSizeDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/PServiceProjectConfigService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/PShopItemConfigService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopCosmetologyDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopCosmetologyServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopDrawMoneyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopEvaluationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopItemDataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopItemDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopMaintainServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopShareGainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopTotalServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopUpkeepDetailsItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopUpkeepServiceDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/SShopUpkeepSubServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/UInvoiceTableService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/UOderSystemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/UOperationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/UServiceProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/service/USubServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/sms/SMSPhoneCodeMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/sms/SMSSend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/sms/ShopLoginSendSMSTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/sms/ShopLoginSendSMSTimerTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/test/NetCarBrandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/test/NetCarDetailsDataTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/test/NetCarMaketDetailsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/test/NetCarSizeDetailTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/CommonConst.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/CommonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/EnumCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/FinalData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/MyHttp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/RegexUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/AddNewItem.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/AddShopGetCarUser.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/AddShopItemDetail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/AddShopPic.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/UpdateShopItemDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SSMCRUD_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SSMCRUD_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSMCRUD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SSMCRUD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mbg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mbg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/TestTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/controller/TestTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guojiang/util/ResultCodeKeyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/ResultCodeKeyEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guojiang/util/ResultCodeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guojiang/util/ResultCodeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbconfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TestTableMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/controller/TestTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/controller/TestTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeKeyEnum$ResultCodeKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeKeyEnum$ResultCodeKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeKeyEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeKeyEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/com/guojiang/util/ResultCodeMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/dbconfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/dispatcherServlet-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/dispatcherServlet-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.30.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyCar-0.0.1-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/Department.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/DepartmentExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/DepartmentExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/DepartmentExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/EmployeeExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/EmployeeExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/EmployeeExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/EmployeeExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/bean/Msg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/controller/DepartmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/controller/EmployeeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/dao/DepartmentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/dao/EmployeeMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/service/DepartmentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/service/EmployeeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/test/MBGTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/test/MapperTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/com/weibin/test/MvcTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/classes/mapper/EmployeeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/lib/spring-test-4.3.11.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-CRUD/WEB-INF/lib/spring-test-5.1.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM-MyCarShop/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guojiang/controller/TestTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guojiang/controller/TestTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeKeyEnum$ResultCodeKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeKeyEnum$ResultCodeKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeKeyEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeKeyEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guojiang/util/ResultCodeMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbconfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssm-demo-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
-    </list>
+    <list default="true" id="de685b39-379c-4b77-b318-3445e116ba37" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -301,7 +151,7 @@
     <session id="188969147">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
+          <entry key="project.closed" value="31" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="11" />
           <entry key="project.open.time.11" value="2" />
@@ -311,6 +161,7 @@
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.3" value="1" />
@@ -320,7 +171,7 @@
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="37" />
+          <entry key="project.opened" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -332,7 +183,7 @@
           <entry key="jsp" value="25" />
           <entry key="properties" value="12" />
           <entry key="txt" value="3" />
-          <entry key="xml" value="313" />
+          <entry key="xml" value="314" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -343,7 +194,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="12" />
-          <entry key="XML" value="313" />
+          <entry key="XML" value="314" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -372,18 +223,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopItemDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="9291">
               <caret line="516" column="85" selection-start-line="516" selection-start-column="85" selection-end-line="516" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarBrandController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="34" column="54" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="54" />
+            <state relative-caret-position="482">
+              <caret line="44" column="15" lean-forward="true" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2971" />
           </provider>
         </entry>
       </file>
@@ -1147,6 +1005,7 @@
       <workItem from="1545212365222" duration="5000" />
       <workItem from="1545212379108" duration="225000" />
       <workItem from="1545276941160" duration="1965000" />
+      <workItem from="1545288838675" duration="74000" />
     </task>
     <servers />
   </component>
@@ -1183,7 +1042,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="508498000" />
+    <option name="totallyTimeSpent" value="508572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1197,7 +1056,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1870" height="1096" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23289183" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23509933" />
       <window_info id="Nl-Palette" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1247,13 +1106,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mbg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/guojiang/bean/UOderSystem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
@@ -1550,7 +1402,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/guojiang/controller/SShopItemDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="9291">
           <caret line="516" column="85" selection-start-line="516" selection-start-column="85" selection-end-line="516" selection-end-column="85" />
         </state>
       </provider>
@@ -1603,9 +1455,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/guojiang/controller/NetCarBrandController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="34" column="54" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="54" />
+        <state relative-caret-position="482">
+          <caret line="44" column="15" lean-forward="true" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2971" />
       </provider>
     </entry>
   </component>
