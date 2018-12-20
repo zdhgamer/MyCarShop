@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopMaintainServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopMaintainService">
+    <id column="smo_id" jdbcType="INTEGER" property="smoId" />
+    <result column="smo_shop_id" jdbcType="INTEGER" property="smoShopId" />
+    <result column="smo_sts_id" jdbcType="INTEGER" property="smoStsId" />
+    <result column="smo_ordermoney" jdbcType="BIGINT" property="smoOrdermoney" />
+    <result column="smo_state" jdbcType="INTEGER" property="smoState" />
+    <result column="smo_carsize_id" jdbcType="INTEGER" property="smoCarsizeId" />
+    <result column="smo_createtime" jdbcType="BIGINT" property="smoCreatetime" />
+    <result column="smo_checktime" jdbcType="BIGINT" property="smoChecktime" />
+    <result column="smo_checkstate" jdbcType="INTEGER" property="smoCheckstate" />
+    <result column="smo_checkdes" jdbcType="VARCHAR" property="smoCheckdes" />
+    <association column="smo_carsize_id" property="config" select="findConfig" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    smo_id, smo_shop_id, smo_sts_id, smo_ordermoney, smo_state, smo_carsize_id, smo_createtime, 
+    smo_checktime, smo_checkstate, smo_checkdes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopmaintainservice
+    where smo_id = #{smoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopmaintainservice
+    where smo_id = #{smoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopMaintainService">
+    insert into sshopmaintainservice (smo_id, smo_shop_id, smo_sts_id, 
+      smo_ordermoney, smo_state, smo_carsize_id, 
+      smo_createtime, smo_checktime, smo_checkstate, 
+      smo_checkdes)
+    values (#{smoId,jdbcType=INTEGER}, #{smoShopId,jdbcType=INTEGER}, #{smoStsId,jdbcType=INTEGER}, 
+      #{smoOrdermoney,jdbcType=BIGINT}, #{smoState,jdbcType=INTEGER}, #{smoCarsizeId,jdbcType=INTEGER}, 
+      #{smoCreatetime,jdbcType=BIGINT}, #{smoChecktime,jdbcType=BIGINT}, #{smoCheckstate,jdbcType=INTEGER}, 
+      #{smoCheckdes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopMaintainService">
+    insert into sshopmaintainservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smoId != null">
+        smo_id,
+      </if>
+      <if test="smoShopId != null">
+        smo_shop_id,
+      </if>
+      <if test="smoStsId != null">
+        smo_sts_id,
+      </if>
+      <if test="smoOrdermoney != null">
+        smo_ordermoney,
+      </if>
+      <if test="smoState != null">
+        smo_state,
+      </if>
+      <if test="smoCarsizeId != null">
+        smo_carsize_id,
+      </if>
+      <if test="smoCreatetime != null">
+        smo_createtime,
+      </if>
+      <if test="smoChecktime != null">
+        smo_checktime,
+      </if>
+      <if test="smoCheckstate != null">
+        smo_checkstate,
+      </if>
+      <if test="smoCheckdes != null">
+        smo_checkdes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smoId != null">
+        #{smoId,jdbcType=INTEGER},
+      </if>
+      <if test="smoShopId != null">
+        #{smoShopId,jdbcType=INTEGER},
+      </if>
+      <if test="smoStsId != null">
+        #{smoStsId,jdbcType=INTEGER},
+      </if>
+      <if test="smoOrdermoney != null">
+        #{smoOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="smoState != null">
+        #{smoState,jdbcType=INTEGER},
+      </if>
+      <if test="smoCarsizeId != null">
+        #{smoCarsizeId,jdbcType=INTEGER},
+      </if>
+      <if test="smoCreatetime != null">
+        #{smoCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="smoChecktime != null">
+        #{smoChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="smoCheckstate != null">
+        #{smoCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="smoCheckdes != null">
+        #{smoCheckdes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopMaintainService">
+    update sshopmaintainservice
+    <set>
+      <if test="smoShopId != null">
+        smo_shop_id = #{smoShopId,jdbcType=INTEGER},
+      </if>
+      <if test="smoStsId != null">
+        smo_sts_id = #{smoStsId,jdbcType=INTEGER},
+      </if>
+      <if test="smoOrdermoney != null">
+        smo_ordermoney = #{smoOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="smoState != null">
+        smo_state = #{smoState,jdbcType=INTEGER},
+      </if>
+      <if test="smoCarsizeId != null">
+        smo_carsize_id = #{smoCarsizeId,jdbcType=INTEGER},
+      </if>
+      <if test="smoCreatetime != null">
+        smo_createtime = #{smoCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="smoChecktime != null">
+        smo_checktime = #{smoChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="smoCheckstate != null">
+        smo_checkstate = #{smoCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="smoCheckdes != null">
+        smo_checkdes = #{smoCheckdes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where smo_id = #{smoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopMaintainService">
+    update sshopmaintainservice
+    set smo_shop_id = #{smoShopId,jdbcType=INTEGER},
+      smo_sts_id = #{smoStsId,jdbcType=INTEGER},
+      smo_ordermoney = #{smoOrdermoney,jdbcType=BIGINT},
+      smo_state = #{smoState,jdbcType=INTEGER},
+      smo_carsize_id = #{smoCarsizeId,jdbcType=INTEGER},
+      smo_createtime = #{smoCreatetime,jdbcType=BIGINT},
+      smo_checktime = #{smoChecktime,jdbcType=BIGINT},
+      smo_checkstate = #{smoCheckstate,jdbcType=INTEGER},
+      smo_checkdes = #{smoCheckdes,jdbcType=VARCHAR}
+    where smo_id = #{smoId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectByPshcId 参照查询-->
+  <select id="findConfig" resultType="com.guojiang.bean.NetCarSizeConfig">
+    select
+         cs_id, cs_type, cs_des
+    from netcarsizeconfig
+    where cs_id=#{smo_carsize_id}
+  </select>
+
+
+  <!--List&lt;SShopMaintainService&gt; selectAllByShopId(@Param("0")Integer shopId, @Param("1") Integer state);-->
+
+  <select id="selectAllByShopId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopmaintainservice
+    where smo_shop_id = #{0} and smo_state = #{1}
+  </select>
+
+
+  <!--selectByCarSizeId(@Param("0")Integer shopId,@Param("1") Integer carSizeId,@Param("2") Integer state)-->
+  <select id="selectByCarSizeId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopmaintainservice
+    where smo_shop_id = #{0} and smo_carsize_id = #{1}  and smo_state = #{2}
+  </select>
+
+
+</mapper>

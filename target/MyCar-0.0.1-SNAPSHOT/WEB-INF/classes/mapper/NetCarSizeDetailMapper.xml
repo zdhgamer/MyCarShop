@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.NetCarSizeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.NetCarSizeDetail">
+    <id column="nsd_id" jdbcType="INTEGER" property="nsdId" />
+    <result column="nsd_size_id" jdbcType="INTEGER" property="nsdSizeId" />
+    <result column="nsd_brandid" jdbcType="INTEGER" property="nsdBrandid" />
+    <result column="nsd_fctid" jdbcType="INTEGER" property="nsdFctid" />
+    <result column="nsd_fctname" jdbcType="VARCHAR" property="nsdFctname" />
+    <result column="nsd_fcturl" jdbcType="VARCHAR" property="nsdFcturl" />
+    <result column="nsd_logo" jdbcType="VARCHAR" property="nsdLogo" />
+    <result column="nsd_order" jdbcType="INTEGER" property="nsdOrder" />
+    <result column="nsd_seriesid" jdbcType="INTEGER" property="nsdSeriesid" />
+    <result column="nsd_seriesname" jdbcType="VARCHAR" property="nsdSeriesname" />
+    <result column="nsd_state" jdbcType="INTEGER" property="nsdState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    nsd_id, nsd_size_id, nsd_brandid, nsd_fctid, nsd_fctname, nsd_fcturl, nsd_logo, nsd_order, 
+    nsd_seriesid, nsd_seriesname, nsd_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netcarsizedetail
+    where nsd_id = #{nsdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from netcarsizedetail
+    where nsd_id = #{nsdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.NetCarSizeDetail">
+    insert into netcarsizedetail (nsd_id, nsd_size_id, nsd_brandid, 
+      nsd_fctid, nsd_fctname, nsd_fcturl, 
+      nsd_logo, nsd_order, nsd_seriesid, 
+      nsd_seriesname, nsd_state)
+    values (#{nsdId,jdbcType=INTEGER}, #{nsdSizeId,jdbcType=INTEGER}, #{nsdBrandid,jdbcType=INTEGER}, 
+      #{nsdFctid,jdbcType=INTEGER}, #{nsdFctname,jdbcType=VARCHAR}, #{nsdFcturl,jdbcType=VARCHAR}, 
+      #{nsdLogo,jdbcType=VARCHAR}, #{nsdOrder,jdbcType=INTEGER}, #{nsdSeriesid,jdbcType=INTEGER}, 
+      #{nsdSeriesname,jdbcType=VARCHAR}, #{nsdState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.NetCarSizeDetail">
+    insert into netcarsizedetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nsdId != null">
+        nsd_id,
+      </if>
+      <if test="nsdSizeId != null">
+        nsd_size_id,
+      </if>
+      <if test="nsdBrandid != null">
+        nsd_brandid,
+      </if>
+      <if test="nsdFctid != null">
+        nsd_fctid,
+      </if>
+      <if test="nsdFctname != null">
+        nsd_fctname,
+      </if>
+      <if test="nsdFcturl != null">
+        nsd_fcturl,
+      </if>
+      <if test="nsdLogo != null">
+        nsd_logo,
+      </if>
+      <if test="nsdOrder != null">
+        nsd_order,
+      </if>
+      <if test="nsdSeriesid != null">
+        nsd_seriesid,
+      </if>
+      <if test="nsdSeriesname != null">
+        nsd_seriesname,
+      </if>
+      <if test="nsdState != null">
+        nsd_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nsdId != null">
+        #{nsdId,jdbcType=INTEGER},
+      </if>
+      <if test="nsdSizeId != null">
+        #{nsdSizeId,jdbcType=INTEGER},
+      </if>
+      <if test="nsdBrandid != null">
+        #{nsdBrandid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdFctid != null">
+        #{nsdFctid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdFctname != null">
+        #{nsdFctname,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdFcturl != null">
+        #{nsdFcturl,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdLogo != null">
+        #{nsdLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdOrder != null">
+        #{nsdOrder,jdbcType=INTEGER},
+      </if>
+      <if test="nsdSeriesid != null">
+        #{nsdSeriesid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdSeriesname != null">
+        #{nsdSeriesname,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdState != null">
+        #{nsdState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.NetCarSizeDetail">
+    update netcarsizedetail
+    <set>
+      <if test="nsdSizeId != null">
+        nsd_size_id = #{nsdSizeId,jdbcType=INTEGER},
+      </if>
+      <if test="nsdBrandid != null">
+        nsd_brandid = #{nsdBrandid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdFctid != null">
+        nsd_fctid = #{nsdFctid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdFctname != null">
+        nsd_fctname = #{nsdFctname,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdFcturl != null">
+        nsd_fcturl = #{nsdFcturl,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdLogo != null">
+        nsd_logo = #{nsdLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdOrder != null">
+        nsd_order = #{nsdOrder,jdbcType=INTEGER},
+      </if>
+      <if test="nsdSeriesid != null">
+        nsd_seriesid = #{nsdSeriesid,jdbcType=INTEGER},
+      </if>
+      <if test="nsdSeriesname != null">
+        nsd_seriesname = #{nsdSeriesname,jdbcType=VARCHAR},
+      </if>
+      <if test="nsdState != null">
+        nsd_state = #{nsdState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where nsd_id = #{nsdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.NetCarSizeDetail">
+    update netcarsizedetail
+    set nsd_size_id = #{nsdSizeId,jdbcType=INTEGER},
+      nsd_brandid = #{nsdBrandid,jdbcType=INTEGER},
+      nsd_fctid = #{nsdFctid,jdbcType=INTEGER},
+      nsd_fctname = #{nsdFctname,jdbcType=VARCHAR},
+      nsd_fcturl = #{nsdFcturl,jdbcType=VARCHAR},
+      nsd_logo = #{nsdLogo,jdbcType=VARCHAR},
+      nsd_order = #{nsdOrder,jdbcType=INTEGER},
+      nsd_seriesid = #{nsdSeriesid,jdbcType=INTEGER},
+      nsd_seriesname = #{nsdSeriesname,jdbcType=VARCHAR},
+      nsd_state = #{nsdState,jdbcType=INTEGER}
+    where nsd_id = #{nsdId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--查找当前车型下面的所有车 selectBySizeId(Integer sizeId)-->
+  <select id="selectBySizeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcarsizedetail
+    where nsd_size_id = #{sizeId,jdbcType=INTEGER}
+  </select>
+
+<!--通过seriesId查找 selectBySeriesId(Integer seriesId)-->
+  <select id="selectBySeriesId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcarsizedetail
+    where nsd_seriesid = #{seriesId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

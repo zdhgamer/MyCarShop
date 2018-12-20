@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopItemDataMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopItemData">
+    <id column="ssh_id" jdbcType="INTEGER" property="sshId" />
+    <result column="ssh_shop_id" jdbcType="INTEGER" property="sshShopId" />
+    <result column="ssh_pshc_id" jdbcType="INTEGER" property="sshPshcId" />
+    <result column="ssh_state" jdbcType="INTEGER" property="sshState" />
+    <association property="pShopItemConfig" column="ssh_pshc_id" select="selectByPshcId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ssh_id, ssh_shop_id, ssh_pshc_id, ssh_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopitemdata
+    where ssh_id = #{sshId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopitemdata
+    where ssh_id = #{sshId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopItemData">
+    insert into sshopitemdata (ssh_id, ssh_shop_id, ssh_pshc_id, 
+      ssh_state)
+    values (#{sshId,jdbcType=INTEGER}, #{sshShopId,jdbcType=INTEGER}, #{sshPshcId,jdbcType=INTEGER}, 
+      #{sshState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopItemData">
+    insert into sshopitemdata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sshId != null">
+        ssh_id,
+      </if>
+      <if test="sshShopId != null">
+        ssh_shop_id,
+      </if>
+      <if test="sshPshcId != null">
+        ssh_pshc_id,
+      </if>
+      <if test="sshState != null">
+        ssh_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sshId != null">
+        #{sshId,jdbcType=INTEGER},
+      </if>
+      <if test="sshShopId != null">
+        #{sshShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sshPshcId != null">
+        #{sshPshcId,jdbcType=INTEGER},
+      </if>
+      <if test="sshState != null">
+        #{sshState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopItemData">
+    update sshopitemdata
+    <set>
+      <if test="sshShopId != null">
+        ssh_shop_id = #{sshShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sshPshcId != null">
+        ssh_pshc_id = #{sshPshcId,jdbcType=INTEGER},
+      </if>
+      <if test="sshState != null">
+        ssh_state = #{sshState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ssh_id = #{sshId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopItemData">
+    update sshopitemdata
+    set ssh_shop_id = #{sshShopId,jdbcType=INTEGER},
+      ssh_pshc_id = #{sshPshcId,jdbcType=INTEGER},
+      ssh_state = #{sshState,jdbcType=INTEGER}
+    where ssh_id = #{sshId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--selectByPshcId 参照查询-->
+  <select id="selectByPshcId" parameterType="java.lang.Integer" resultType="com.guojiang.bean.PShopItemConfig">
+    select
+      pshc_id, pshc_type, pshc_des, pshc_state
+    from pshopitemconfig
+    where pshc_id=#{ssh_pshc_id}
+  </select>
+
+  <!--按商品类别查找 selectByShopType(@Param("0") Integer shopId,@Param("1") Integer shopItemType,@Param("2") Integer state);-->
+  <select id="selectByShopType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopitemdata
+    where ssh_shop_id = #{0} and ssh_pshc_id = #{1} and ssh_state = #{2}
+  </select>
+
+
+  <!--查找所有的商品类别 List<SShopItemData> selectByShopId(@Param("0") Integer shopId,@Param("1") Integer state);-->
+  <select id="selectByShopId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopitemdata
+    where ssh_shop_id = #{0} and ssh_state = #{1}
+  </select>
+
+
+</mapper>

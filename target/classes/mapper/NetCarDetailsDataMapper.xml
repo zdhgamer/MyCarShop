@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.NetCarDetailsDataMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.NetCarDetailsData">
+    <id column="ncd_id" jdbcType="INTEGER" property="ncdId" />
+    <result column="ncd_I" jdbcType="INTEGER" property="ncdI" />
+    <result column="ncd_L" jdbcType="VARCHAR" property="ncdL" />
+    <result column="ncd_N" jdbcType="VARCHAR" property="ncdN" />
+    <result column="ncd_jsondata" jdbcType="VARCHAR" property="ncdJsondata" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ncd_id, ncd_I, ncd_L, ncd_N, ncd_jsondata
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netcardetailsdata
+    where ncd_id = #{ncdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from netcardetailsdata
+    where ncd_id = #{ncdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.NetCarDetailsData">
+    insert into netcardetailsdata (ncd_id, ncd_I, ncd_L, 
+      ncd_N, ncd_jsondata)
+    values (#{ncdId,jdbcType=INTEGER}, #{ncdI,jdbcType=INTEGER}, #{ncdL,jdbcType=VARCHAR}, 
+      #{ncdN,jdbcType=VARCHAR}, #{ncdJsondata,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.NetCarDetailsData">
+    insert into netcardetailsdata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ncdId != null">
+        ncd_id,
+      </if>
+      <if test="ncdI != null">
+        ncd_I,
+      </if>
+      <if test="ncdL != null">
+        ncd_L,
+      </if>
+      <if test="ncdN != null">
+        ncd_N,
+      </if>
+      <if test="ncdJsondata != null">
+        ncd_jsondata,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ncdId != null">
+        #{ncdId,jdbcType=INTEGER},
+      </if>
+      <if test="ncdI != null">
+        #{ncdI,jdbcType=INTEGER},
+      </if>
+      <if test="ncdL != null">
+        #{ncdL,jdbcType=VARCHAR},
+      </if>
+      <if test="ncdN != null">
+        #{ncdN,jdbcType=VARCHAR},
+      </if>
+      <if test="ncdJsondata != null">
+        #{ncdJsondata,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.NetCarDetailsData">
+    update netcardetailsdata
+    <set>
+      <if test="ncdI != null">
+        ncd_I = #{ncdI,jdbcType=INTEGER},
+      </if>
+      <if test="ncdL != null">
+        ncd_L = #{ncdL,jdbcType=VARCHAR},
+      </if>
+      <if test="ncdN != null">
+        ncd_N = #{ncdN,jdbcType=VARCHAR},
+      </if>
+      <if test="ncdJsondata != null">
+        ncd_jsondata = #{ncdJsondata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ncd_id = #{ncdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.NetCarDetailsData">
+    update netcardetailsdata
+    set ncd_I = #{ncdI,jdbcType=INTEGER},
+      ncd_L = #{ncdL,jdbcType=VARCHAR},
+      ncd_N = #{ncdN,jdbcType=VARCHAR},
+      ncd_jsondata = #{ncdJsondata,jdbcType=VARCHAR}
+    where ncd_id = #{ncdId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--通过I查找 selectByI(Integer I)-->
+  <select id="selectByI" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcardetailsdata
+    where ncd_I = #{I,jdbcType=INTEGER}
+  </select>
+
+  <!--查找所有 selectAll()-->
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcardetailsdata
+  </select>
+
+
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PGetCarUserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PGetCarUserInfo">
+    <id column="pgc_id" jdbcType="INTEGER" property="pgcId" />
+    <result column="pgc_username" jdbcType="VARCHAR" property="pgcUsername" />
+    <result column="pgc_phonenumber" jdbcType="VARCHAR" property="pgcPhonenumber" />
+    <result column="pgc_idcardnumber" jdbcType="VARCHAR" property="pgcIdcardnumber" />
+    <result column="pgc_driverpic" jdbcType="VARCHAR" property="pgcDriverpic" />
+    <result column="pgc_state" jdbcType="INTEGER" property="pgcState" />
+    <result column="pgc_getcarnum" jdbcType="INTEGER" property="pgcGetcarnum" />
+    <result column="pgc_orderjson" jdbcType="VARCHAR" property="pgcOrderjson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pgc_id, pgc_username, pgc_phonenumber, pgc_idcardnumber, pgc_driverpic, pgc_state, 
+    pgc_getcarnum, pgc_orderjson
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pgetcaruserinfo
+    where pgc_id = #{pgcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pgetcaruserinfo
+    where pgc_id = #{pgcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PGetCarUserInfo">
+    insert into pgetcaruserinfo (pgc_id, pgc_username, pgc_phonenumber, 
+      pgc_idcardnumber, pgc_driverpic, pgc_state, 
+      pgc_getcarnum, pgc_orderjson)
+    values (#{pgcId,jdbcType=INTEGER}, #{pgcUsername,jdbcType=VARCHAR}, #{pgcPhonenumber,jdbcType=VARCHAR}, 
+      #{pgcIdcardnumber,jdbcType=VARCHAR}, #{pgcDriverpic,jdbcType=VARCHAR}, #{pgcState,jdbcType=INTEGER}, 
+      #{pgcGetcarnum,jdbcType=INTEGER}, #{pgcOrderjson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PGetCarUserInfo">
+    insert into pgetcaruserinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pgcId != null">
+        pgc_id,
+      </if>
+      <if test="pgcUsername != null">
+        pgc_username,
+      </if>
+      <if test="pgcPhonenumber != null">
+        pgc_phonenumber,
+      </if>
+      <if test="pgcIdcardnumber != null">
+        pgc_idcardnumber,
+      </if>
+      <if test="pgcDriverpic != null">
+        pgc_driverpic,
+      </if>
+      <if test="pgcState != null">
+        pgc_state,
+      </if>
+      <if test="pgcGetcarnum != null">
+        pgc_getcarnum,
+      </if>
+      <if test="pgcOrderjson != null">
+        pgc_orderjson,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pgcId != null">
+        #{pgcId,jdbcType=INTEGER},
+      </if>
+      <if test="pgcUsername != null">
+        #{pgcUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcPhonenumber != null">
+        #{pgcPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcIdcardnumber != null">
+        #{pgcIdcardnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcDriverpic != null">
+        #{pgcDriverpic,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcState != null">
+        #{pgcState,jdbcType=INTEGER},
+      </if>
+      <if test="pgcGetcarnum != null">
+        #{pgcGetcarnum,jdbcType=INTEGER},
+      </if>
+      <if test="pgcOrderjson != null">
+        #{pgcOrderjson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PGetCarUserInfo">
+    update pgetcaruserinfo
+    <set>
+      <if test="pgcUsername != null">
+        pgc_username = #{pgcUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcPhonenumber != null">
+        pgc_phonenumber = #{pgcPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcIdcardnumber != null">
+        pgc_idcardnumber = #{pgcIdcardnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcDriverpic != null">
+        pgc_driverpic = #{pgcDriverpic,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcState != null">
+        pgc_state = #{pgcState,jdbcType=INTEGER},
+      </if>
+      <if test="pgcGetcarnum != null">
+        pgc_getcarnum = #{pgcGetcarnum,jdbcType=INTEGER},
+      </if>
+      <if test="pgcOrderjson != null">
+        pgc_orderjson = #{pgcOrderjson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pgc_id = #{pgcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PGetCarUserInfo">
+    update pgetcaruserinfo
+    set pgc_username = #{pgcUsername,jdbcType=VARCHAR},
+      pgc_phonenumber = #{pgcPhonenumber,jdbcType=VARCHAR},
+      pgc_idcardnumber = #{pgcIdcardnumber,jdbcType=VARCHAR},
+      pgc_driverpic = #{pgcDriverpic,jdbcType=VARCHAR},
+      pgc_state = #{pgcState,jdbcType=INTEGER},
+      pgc_getcarnum = #{pgcGetcarnum,jdbcType=INTEGER},
+      pgc_orderjson = #{pgcOrderjson,jdbcType=VARCHAR}
+    where pgc_id = #{pgcId,jdbcType=INTEGER}
+  </update>
+</mapper>

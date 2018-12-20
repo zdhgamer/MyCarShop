@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopShareGainMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopShareGain">
+    <id column="ssg_id" jdbcType="INTEGER" property="ssgId" />
+    <result column="ssg_sp_id" jdbcType="INTEGER" property="ssgSpId" />
+    <result column="ssg_uid" jdbcType="INTEGER" property="ssgUid" />
+    <result column="ssg_gainnumber" jdbcType="BIGINT" property="ssgGainnumber" />
+    <result column="ssg_gaintime" jdbcType="BIGINT" property="ssgGaintime" />
+    <association property="userInfo" column="ssg_uid" select="findUserInfo"></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    ssg_id, ssg_sp_id, ssg_uid, ssg_gainnumber, ssg_gaintime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopsharegain
+    where ssg_id = #{ssgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopsharegain
+    where ssg_id = #{ssgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopShareGain">
+    insert into sshopsharegain (ssg_id, ssg_sp_id, ssg_uid, 
+      ssg_gainnumber, ssg_gaintime)
+    values (#{ssgId,jdbcType=INTEGER}, #{ssgSpId,jdbcType=INTEGER}, #{ssgUid,jdbcType=INTEGER}, 
+      #{ssgGainnumber,jdbcType=BIGINT}, #{ssgGaintime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopShareGain">
+    insert into sshopsharegain
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ssgId != null">
+        ssg_id,
+      </if>
+      <if test="ssgSpId != null">
+        ssg_sp_id,
+      </if>
+      <if test="ssgUid != null">
+        ssg_uid,
+      </if>
+      <if test="ssgGainnumber != null">
+        ssg_gainnumber,
+      </if>
+      <if test="ssgGaintime != null">
+        ssg_gaintime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ssgId != null">
+        #{ssgId,jdbcType=INTEGER},
+      </if>
+      <if test="ssgSpId != null">
+        #{ssgSpId,jdbcType=INTEGER},
+      </if>
+      <if test="ssgUid != null">
+        #{ssgUid,jdbcType=INTEGER},
+      </if>
+      <if test="ssgGainnumber != null">
+        #{ssgGainnumber,jdbcType=BIGINT},
+      </if>
+      <if test="ssgGaintime != null">
+        #{ssgGaintime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopShareGain">
+    update sshopsharegain
+    <set>
+      <if test="ssgSpId != null">
+        ssg_sp_id = #{ssgSpId,jdbcType=INTEGER},
+      </if>
+      <if test="ssgUid != null">
+        ssg_uid = #{ssgUid,jdbcType=INTEGER},
+      </if>
+      <if test="ssgGainnumber != null">
+        ssg_gainnumber = #{ssgGainnumber,jdbcType=BIGINT},
+      </if>
+      <if test="ssgGaintime != null">
+        ssg_gaintime = #{ssgGaintime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ssg_id = #{ssgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopShareGain">
+    update sshopsharegain
+    set ssg_sp_id = #{ssgSpId,jdbcType=INTEGER},
+      ssg_uid = #{ssgUid,jdbcType=INTEGER},
+      ssg_gainnumber = #{ssgGainnumber,jdbcType=BIGINT},
+      ssg_gaintime = #{ssgGaintime,jdbcType=BIGINT}
+    where ssg_id = #{ssgId,jdbcType=INTEGER}
+  </update>
+
+  <!--findUserInfo 参照查询-->
+  <select id="findUserInfo" resultType="com.guojiang.bean.UserInfo">
+    select
+      u_id, u_openid, u_nikename, u_gender, u_province, u_city, u_country, u_headimages,
+      u_latitude, u_longitude, u_phonenumbe, u_registertime, u_state, u_speatiallevl, u_remake
+    from userinfo
+    where u_id=#{ssg_uid}
+  </select>
+
+
+  <!--List<SShopShareGain> selectByShopId(Integer shopId)-->
+  <select id="selectByShopId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopsharegain
+    where ssg_sp_id = #{shopId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

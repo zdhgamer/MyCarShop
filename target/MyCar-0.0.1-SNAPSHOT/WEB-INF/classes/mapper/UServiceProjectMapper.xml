@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UServiceProjectMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UServiceProject">
+    <id column="usp_id" jdbcType="INTEGER" property="uspId" />
+    <result column="usp_service_config_id" jdbcType="INTEGER" property="uspServiceConfigId" />
+    <result column="usp_shop_service_id" jdbcType="INTEGER" property="uspShopServiceId" />
+    <result column="usp_plath_service_id" jdbcType="INTEGER" property="uspPlathServiceId" />
+    <result column="usp_des" jdbcType="VARCHAR" property="uspDes" />
+    <result column="usp_remake" jdbcType="VARCHAR" property="uspRemake" />
+    <result column="usp_u_id" jdbcType="INTEGER" property="uspUId" />
+    <result column="usp_o_id" jdbcType="INTEGER" property="uspOId" />
+    <result column="usp_howmuch" jdbcType="BIGINT" property="uspHowmuch" />
+    <association column="usp_service_config_id" property="totalServiceConfig" select="findTotalConfig" />
+    <association column="usp_shop_service_id" property="shopTotalService" select="findShopTotal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    usp_id, usp_service_config_id, usp_shop_service_id, usp_plath_service_id, usp_des, 
+    usp_remake, usp_u_id, usp_o_id, usp_howmuch
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userviceproject
+    where usp_id = #{uspId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userviceproject
+    where usp_id = #{uspId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UServiceProject">
+    insert into userviceproject (usp_id, usp_service_config_id, usp_shop_service_id, 
+      usp_plath_service_id, usp_des, usp_remake, 
+      usp_u_id, usp_o_id, usp_howmuch
+      )
+    values (#{uspId,jdbcType=INTEGER}, #{uspServiceConfigId,jdbcType=INTEGER}, #{uspShopServiceId,jdbcType=INTEGER}, 
+      #{uspPlathServiceId,jdbcType=INTEGER}, #{uspDes,jdbcType=VARCHAR}, #{uspRemake,jdbcType=VARCHAR}, 
+      #{uspUId,jdbcType=INTEGER}, #{uspOId,jdbcType=INTEGER}, #{uspHowmuch,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UServiceProject">
+    insert into userviceproject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uspId != null">
+        usp_id,
+      </if>
+      <if test="uspServiceConfigId != null">
+        usp_service_config_id,
+      </if>
+      <if test="uspShopServiceId != null">
+        usp_shop_service_id,
+      </if>
+      <if test="uspPlathServiceId != null">
+        usp_plath_service_id,
+      </if>
+      <if test="uspDes != null">
+        usp_des,
+      </if>
+      <if test="uspRemake != null">
+        usp_remake,
+      </if>
+      <if test="uspUId != null">
+        usp_u_id,
+      </if>
+      <if test="uspOId != null">
+        usp_o_id,
+      </if>
+      <if test="uspHowmuch != null">
+        usp_howmuch,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uspId != null">
+        #{uspId,jdbcType=INTEGER},
+      </if>
+      <if test="uspServiceConfigId != null">
+        #{uspServiceConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="uspShopServiceId != null">
+        #{uspShopServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="uspPlathServiceId != null">
+        #{uspPlathServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="uspDes != null">
+        #{uspDes,jdbcType=VARCHAR},
+      </if>
+      <if test="uspRemake != null">
+        #{uspRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="uspUId != null">
+        #{uspUId,jdbcType=INTEGER},
+      </if>
+      <if test="uspOId != null">
+        #{uspOId,jdbcType=INTEGER},
+      </if>
+      <if test="uspHowmuch != null">
+        #{uspHowmuch,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UServiceProject">
+    update userviceproject
+    <set>
+      <if test="uspServiceConfigId != null">
+        usp_service_config_id = #{uspServiceConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="uspShopServiceId != null">
+        usp_shop_service_id = #{uspShopServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="uspPlathServiceId != null">
+        usp_plath_service_id = #{uspPlathServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="uspDes != null">
+        usp_des = #{uspDes,jdbcType=VARCHAR},
+      </if>
+      <if test="uspRemake != null">
+        usp_remake = #{uspRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="uspUId != null">
+        usp_u_id = #{uspUId,jdbcType=INTEGER},
+      </if>
+      <if test="uspOId != null">
+        usp_o_id = #{uspOId,jdbcType=INTEGER},
+      </if>
+      <if test="uspHowmuch != null">
+        usp_howmuch = #{uspHowmuch,jdbcType=BIGINT},
+      </if>
+    </set>
+    where usp_id = #{uspId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UServiceProject">
+    update userviceproject
+    set usp_service_config_id = #{uspServiceConfigId,jdbcType=INTEGER},
+      usp_shop_service_id = #{uspShopServiceId,jdbcType=INTEGER},
+      usp_plath_service_id = #{uspPlathServiceId,jdbcType=INTEGER},
+      usp_des = #{uspDes,jdbcType=VARCHAR},
+      usp_remake = #{uspRemake,jdbcType=VARCHAR},
+      usp_u_id = #{uspUId,jdbcType=INTEGER},
+      usp_o_id = #{uspOId,jdbcType=INTEGER},
+      usp_howmuch = #{uspHowmuch,jdbcType=BIGINT}
+    where usp_id = #{uspId,jdbcType=INTEGER}
+  </update>
+
+  <!--findTotalConfig-->
+  <select id="findTotalConfig" resultType="com.guojiang.bean.PServiceProjectConfig">
+    select
+      sp_id, sp_servicetype, sp_des, sp_remake
+    from pserviceprojectconfig
+    where sp_id=#{usp_service_config_id}
+  </select>
+
+  <!--findShopTotal-->
+  <select id="findShopTotal" resultType="com.guojiang.bean.SShopTotalService">
+    select
+      sts_id, sts_sp_shop_id, sts_sp_id, sts_state
+    from sshoptotalservice
+    where sts_id=#{usp_shop_service_id}
+  </select>
+
+
+  <!--List<UServiceProject> selectByOderId(Integer oderId)-->
+  <select id="selectByOderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from userviceproject
+    where usp_o_id = #{oderId,jdbcType=INTEGER}
+  </select>
+
+
+</mapper>

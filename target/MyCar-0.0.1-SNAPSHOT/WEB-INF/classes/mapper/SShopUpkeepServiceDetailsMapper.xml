@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopUpkeepServiceDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopUpkeepServiceDetails">
+    <id column="spsd_id" jdbcType="INTEGER" property="spsdId" />
+    <result column="spsd_shop_id" jdbcType="INTEGER" property="spsdShopId" />
+    <result column="spsd_sts_id" jdbcType="INTEGER" property="spsdStsId" />
+    <result column="spsd_ukss_id" jdbcType="INTEGER" property="spsdUkssId" />
+    <result column="spsd_uk_id" jdbcType="INTEGER" property="spsdUkId" />
+    <result column="spsd_state" jdbcType="INTEGER" property="spsdState" />
+    <result column="spsd_createtime" jdbcType="BIGINT" property="spsdCreatetime" />
+    <result column="spsd_checktime" jdbcType="BIGINT" property="spsdChecktime" />
+    <result column="spsd_checkstate" jdbcType="INTEGER" property="spsdCheckstate" />
+    <result column="spsd_checkdes" jdbcType="VARCHAR" property="spsdCheckdes" />
+    <result column="spsd_finishtime" jdbcType="INTEGER" property="spsdFinishtime" />
+    <association column="spsd_uk_id" property="config" select="findConfig">
+    </association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    spsd_id, spsd_shop_id, spsd_sts_id, spsd_ukss_id, spsd_uk_id, spsd_state, spsd_createtime, 
+    spsd_checktime, spsd_checkstate, spsd_checkdes, spsd_finishtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopupkeepservicedetails
+    where spsd_id = #{spsdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopupkeepservicedetails
+    where spsd_id = #{spsdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopUpkeepServiceDetails">
+    insert into sshopupkeepservicedetails (spsd_id, spsd_shop_id, spsd_sts_id, 
+      spsd_ukss_id, spsd_uk_id, spsd_state, 
+      spsd_createtime, spsd_checktime, spsd_checkstate, 
+      spsd_checkdes, spsd_finishtime)
+    values (#{spsdId,jdbcType=INTEGER}, #{spsdShopId,jdbcType=INTEGER}, #{spsdStsId,jdbcType=INTEGER}, 
+      #{spsdUkssId,jdbcType=INTEGER}, #{spsdUkId,jdbcType=INTEGER}, #{spsdState,jdbcType=INTEGER}, 
+      #{spsdCreatetime,jdbcType=BIGINT}, #{spsdChecktime,jdbcType=BIGINT}, #{spsdCheckstate,jdbcType=INTEGER}, 
+      #{spsdCheckdes,jdbcType=VARCHAR}, #{spsdFinishtime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopUpkeepServiceDetails">
+    insert into sshopupkeepservicedetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="spsdId != null">
+        spsd_id,
+      </if>
+      <if test="spsdShopId != null">
+        spsd_shop_id,
+      </if>
+      <if test="spsdStsId != null">
+        spsd_sts_id,
+      </if>
+      <if test="spsdUkssId != null">
+        spsd_ukss_id,
+      </if>
+      <if test="spsdUkId != null">
+        spsd_uk_id,
+      </if>
+      <if test="spsdState != null">
+        spsd_state,
+      </if>
+      <if test="spsdCreatetime != null">
+        spsd_createtime,
+      </if>
+      <if test="spsdChecktime != null">
+        spsd_checktime,
+      </if>
+      <if test="spsdCheckstate != null">
+        spsd_checkstate,
+      </if>
+      <if test="spsdCheckdes != null">
+        spsd_checkdes,
+      </if>
+      <if test="spsdFinishtime != null">
+        spsd_finishtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="spsdId != null">
+        #{spsdId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdShopId != null">
+        #{spsdShopId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdStsId != null">
+        #{spsdStsId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdUkssId != null">
+        #{spsdUkssId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdUkId != null">
+        #{spsdUkId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdState != null">
+        #{spsdState,jdbcType=INTEGER},
+      </if>
+      <if test="spsdCreatetime != null">
+        #{spsdCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="spsdChecktime != null">
+        #{spsdChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="spsdCheckstate != null">
+        #{spsdCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="spsdCheckdes != null">
+        #{spsdCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="spsdFinishtime != null">
+        #{spsdFinishtime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopUpkeepServiceDetails">
+    update sshopupkeepservicedetails
+    <set>
+      <if test="spsdShopId != null">
+        spsd_shop_id = #{spsdShopId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdStsId != null">
+        spsd_sts_id = #{spsdStsId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdUkssId != null">
+        spsd_ukss_id = #{spsdUkssId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdUkId != null">
+        spsd_uk_id = #{spsdUkId,jdbcType=INTEGER},
+      </if>
+      <if test="spsdState != null">
+        spsd_state = #{spsdState,jdbcType=INTEGER},
+      </if>
+      <if test="spsdCreatetime != null">
+        spsd_createtime = #{spsdCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="spsdChecktime != null">
+        spsd_checktime = #{spsdChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="spsdCheckstate != null">
+        spsd_checkstate = #{spsdCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="spsdCheckdes != null">
+        spsd_checkdes = #{spsdCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="spsdFinishtime != null">
+        spsd_finishtime = #{spsdFinishtime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where spsd_id = #{spsdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopUpkeepServiceDetails">
+    update sshopupkeepservicedetails
+    set spsd_shop_id = #{spsdShopId,jdbcType=INTEGER},
+      spsd_sts_id = #{spsdStsId,jdbcType=INTEGER},
+      spsd_ukss_id = #{spsdUkssId,jdbcType=INTEGER},
+      spsd_uk_id = #{spsdUkId,jdbcType=INTEGER},
+      spsd_state = #{spsdState,jdbcType=INTEGER},
+      spsd_createtime = #{spsdCreatetime,jdbcType=BIGINT},
+      spsd_checktime = #{spsdChecktime,jdbcType=BIGINT},
+      spsd_checkstate = #{spsdCheckstate,jdbcType=INTEGER},
+      spsd_checkdes = #{spsdCheckdes,jdbcType=VARCHAR},
+      spsd_finishtime = #{spsdFinishtime,jdbcType=INTEGER}
+    where spsd_id = #{spsdId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--findConfig 参照查询-->
+  <select id="findConfig" resultType="com.guojiang.bean.SShopItemData">
+    select
+       ssh_id, ssh_shop_id, ssh_pshc_id, ssh_state
+    from sshopitemdata
+    where ssh_id=#{spsd_uk_id}
+  </select>
+
+  <!--selectByPshcId 参照查询-->
+  <select id="selectByPshcId" parameterType="java.lang.Integer" resultType="com.guojiang.bean.PShopItemConfig">
+    select
+      pshc_id, pshc_type, pshc_des, pshc_state
+    from pshopitemconfig
+    where pshc_id=#{ssh_pshc_id}
+  </select>
+
+  <!--List<SShopUpkeepServiceDetails> selectAllBySubId(@Param("0")Integer shopId, @Param("1") Integer subId, @Param("2") Integer state);-->
+
+  <select id="selectAllBySubId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepservicedetails
+    where spsd_shop_id = #{0} and spsd_ukss_id = #{1} and spsd_state = #{2}
+  </select>
+
+
+  <!-- List<SShopUpkeepServiceDetails> selectAllBySubIdAndCheck(@Param("0")Integer shopId, @Param("1") Integer subId, @Param("2") Integer checkState,@Param("3") Integer state);-->
+
+  <select id="selectAllBySubIdAndCheck" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepservicedetails
+    where spsd_shop_id = #{0} and spsd_ukss_id = #{1} and spsd_checkstate = #{2} and spsd_state = #{3}
+  </select>
+
+  <!--SShopUpkeepServiceDetails selectByDetailId(@Param("0")Integer shopId, @Param("1") Integer subId,@Param("2") Integer detailId, @Param("3") Integer state);-->
+
+  <select id="selectByDetailId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepservicedetails
+    where spsd_shop_id = #{0} and spsd_ukss_id = #{1} and spsd_uk_id = #{2} and spsd_state = #{3}
+  </select>
+
+
+</mapper>

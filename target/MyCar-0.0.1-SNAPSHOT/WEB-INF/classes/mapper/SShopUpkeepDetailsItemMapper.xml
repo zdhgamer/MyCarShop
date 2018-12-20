@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopUpkeepDetailsItemMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopUpkeepDetailsItem">
+    <id column="suksdi_id" jdbcType="INTEGER" property="suksdiId" />
+    <result column="suksdi_shop_id" jdbcType="INTEGER" property="suksdiShopId" />
+    <result column="suksdi_sts_id" jdbcType="INTEGER" property="suksdiStsId" />
+    <result column="suksdi_ukss_id" jdbcType="INTEGER" property="suksdiUkssId" />
+    <result column="suksdi_spsd_id" jdbcType="INTEGER" property="suksdiSpsdId" />
+    <result column="suksdi_ssh_id" jdbcType="INTEGER" property="suksdiSshId" />
+    <result column="suksdi_sshd_id" jdbcType="INTEGER" property="suksdiSshdId" />
+    <result column="sudsdi_state" jdbcType="INTEGER" property="sudsdiState" />
+    <association column="suksdi_sshd_id" property="config" select="findConfig" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    suksdi_id, suksdi_shop_id, suksdi_sts_id, suksdi_ukss_id, suksdi_spsd_id, suksdi_ssh_id, 
+    suksdi_sshd_id, sudsdi_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopupkeepdetailsitem
+    where suksdi_id = #{suksdiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopupkeepdetailsitem
+    where suksdi_id = #{suksdiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopUpkeepDetailsItem">
+    insert into sshopupkeepdetailsitem (suksdi_id, suksdi_shop_id, suksdi_sts_id, 
+      suksdi_ukss_id, suksdi_spsd_id, suksdi_ssh_id, 
+      suksdi_sshd_id, sudsdi_state)
+    values (#{suksdiId,jdbcType=INTEGER}, #{suksdiShopId,jdbcType=INTEGER}, #{suksdiStsId,jdbcType=INTEGER}, 
+      #{suksdiUkssId,jdbcType=INTEGER}, #{suksdiSpsdId,jdbcType=INTEGER}, #{suksdiSshId,jdbcType=INTEGER}, 
+      #{suksdiSshdId,jdbcType=INTEGER}, #{sudsdiState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopUpkeepDetailsItem">
+    insert into sshopupkeepdetailsitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="suksdiId != null">
+        suksdi_id,
+      </if>
+      <if test="suksdiShopId != null">
+        suksdi_shop_id,
+      </if>
+      <if test="suksdiStsId != null">
+        suksdi_sts_id,
+      </if>
+      <if test="suksdiUkssId != null">
+        suksdi_ukss_id,
+      </if>
+      <if test="suksdiSpsdId != null">
+        suksdi_spsd_id,
+      </if>
+      <if test="suksdiSshId != null">
+        suksdi_ssh_id,
+      </if>
+      <if test="suksdiSshdId != null">
+        suksdi_sshd_id,
+      </if>
+      <if test="sudsdiState != null">
+        sudsdi_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="suksdiId != null">
+        #{suksdiId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiShopId != null">
+        #{suksdiShopId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiStsId != null">
+        #{suksdiStsId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiUkssId != null">
+        #{suksdiUkssId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSpsdId != null">
+        #{suksdiSpsdId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSshId != null">
+        #{suksdiSshId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSshdId != null">
+        #{suksdiSshdId,jdbcType=INTEGER},
+      </if>
+      <if test="sudsdiState != null">
+        #{sudsdiState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopUpkeepDetailsItem">
+    update sshopupkeepdetailsitem
+    <set>
+      <if test="suksdiShopId != null">
+        suksdi_shop_id = #{suksdiShopId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiStsId != null">
+        suksdi_sts_id = #{suksdiStsId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiUkssId != null">
+        suksdi_ukss_id = #{suksdiUkssId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSpsdId != null">
+        suksdi_spsd_id = #{suksdiSpsdId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSshId != null">
+        suksdi_ssh_id = #{suksdiSshId,jdbcType=INTEGER},
+      </if>
+      <if test="suksdiSshdId != null">
+        suksdi_sshd_id = #{suksdiSshdId,jdbcType=INTEGER},
+      </if>
+      <if test="sudsdiState != null">
+        sudsdi_state = #{sudsdiState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where suksdi_id = #{suksdiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopUpkeepDetailsItem">
+    update sshopupkeepdetailsitem
+    set suksdi_shop_id = #{suksdiShopId,jdbcType=INTEGER},
+      suksdi_sts_id = #{suksdiStsId,jdbcType=INTEGER},
+      suksdi_ukss_id = #{suksdiUkssId,jdbcType=INTEGER},
+      suksdi_spsd_id = #{suksdiSpsdId,jdbcType=INTEGER},
+      suksdi_ssh_id = #{suksdiSshId,jdbcType=INTEGER},
+      suksdi_sshd_id = #{suksdiSshdId,jdbcType=INTEGER},
+      sudsdi_state = #{sudsdiState,jdbcType=INTEGER}
+    where suksdi_id = #{suksdiId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectByPshcId 参照查询-->
+  <select id="findConfig" resultType="com.guojiang.bean.SShopItemDetails">
+    select
+    sshd_id, sshd_shop_id, sshd_ssh_id, sshd_despicone, sshd_usedes, sshd_price, sshd_ssfc_json,
+    sshd_state
+    from sshopitemdetails
+    where sshd_id=#{suksdi_sshd_id}
+  </select>
+
+  <!--selectAllByDetailId(@Param("0")Integer shopId, @Param("1")Integer detailId-->
+  <select id="selectAllByDetailId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepdetailsitem
+    where suksdi_shop_id = #{0} and suksdi_spsd_id = #{1}
+  </select>
+
+
+  <!--    SShopUpkeepDetailsItem selectByItemId(@Param("0")Integer shopId,@Param("1")Integer detailId,@Param("2")Integer itemId);-->
+  <select id="selectByItemId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepdetailsitem
+    where suksdi_shop_id = #{0} and suksdi_spsd_id = #{1} and suksdi_sshd_id = #{2}
+  </select>
+
+</mapper>

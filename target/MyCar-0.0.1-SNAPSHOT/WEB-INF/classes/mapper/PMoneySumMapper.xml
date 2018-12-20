@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PMoneySumMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PMoneySum">
+    <id column="pm_id" jdbcType="INTEGER" property="pmId" />
+    <result column="pm_ordertotal" jdbcType="BIGINT" property="pmOrdertotal" />
+    <result column="pm_gettotalmoney" jdbcType="BIGINT" property="pmGettotalmoney" />
+    <result column="pm_withdrawtotalmoney" jdbcType="BIGINT" property="pmWithdrawtotalmoney" />
+    <result column="pm_remake" jdbcType="VARCHAR" property="pmRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pm_id, pm_ordertotal, pm_gettotalmoney, pm_withdrawtotalmoney, pm_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pmoneysum
+    where pm_id = #{pmId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pmoneysum
+    where pm_id = #{pmId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PMoneySum">
+    insert into pmoneysum (pm_id, pm_ordertotal, pm_gettotalmoney, 
+      pm_withdrawtotalmoney, pm_remake)
+    values (#{pmId,jdbcType=INTEGER}, #{pmOrdertotal,jdbcType=BIGINT}, #{pmGettotalmoney,jdbcType=BIGINT}, 
+      #{pmWithdrawtotalmoney,jdbcType=BIGINT}, #{pmRemake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PMoneySum">
+    insert into pmoneysum
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pmId != null">
+        pm_id,
+      </if>
+      <if test="pmOrdertotal != null">
+        pm_ordertotal,
+      </if>
+      <if test="pmGettotalmoney != null">
+        pm_gettotalmoney,
+      </if>
+      <if test="pmWithdrawtotalmoney != null">
+        pm_withdrawtotalmoney,
+      </if>
+      <if test="pmRemake != null">
+        pm_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pmId != null">
+        #{pmId,jdbcType=INTEGER},
+      </if>
+      <if test="pmOrdertotal != null">
+        #{pmOrdertotal,jdbcType=BIGINT},
+      </if>
+      <if test="pmGettotalmoney != null">
+        #{pmGettotalmoney,jdbcType=BIGINT},
+      </if>
+      <if test="pmWithdrawtotalmoney != null">
+        #{pmWithdrawtotalmoney,jdbcType=BIGINT},
+      </if>
+      <if test="pmRemake != null">
+        #{pmRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PMoneySum">
+    update pmoneysum
+    <set>
+      <if test="pmOrdertotal != null">
+        pm_ordertotal = #{pmOrdertotal,jdbcType=BIGINT},
+      </if>
+      <if test="pmGettotalmoney != null">
+        pm_gettotalmoney = #{pmGettotalmoney,jdbcType=BIGINT},
+      </if>
+      <if test="pmWithdrawtotalmoney != null">
+        pm_withdrawtotalmoney = #{pmWithdrawtotalmoney,jdbcType=BIGINT},
+      </if>
+      <if test="pmRemake != null">
+        pm_remake = #{pmRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pm_id = #{pmId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PMoneySum">
+    update pmoneysum
+    set pm_ordertotal = #{pmOrdertotal,jdbcType=BIGINT},
+      pm_gettotalmoney = #{pmGettotalmoney,jdbcType=BIGINT},
+      pm_withdrawtotalmoney = #{pmWithdrawtotalmoney,jdbcType=BIGINT},
+      pm_remake = #{pmRemake,jdbcType=VARCHAR}
+    where pm_id = #{pmId,jdbcType=INTEGER}
+  </update>
+</mapper>

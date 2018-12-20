@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UUSerevaluateMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UUSerevaluate">
+    <id column="ul_id" jdbcType="INTEGER" property="ulId" />
+    <result column="ul_uid" jdbcType="INTEGER" property="ulUid" />
+    <result column="ul_o_id" jdbcType="INTEGER" property="ulOId" />
+    <result column="ul_servicelevl" jdbcType="INTEGER" property="ulServicelevl" />
+    <result column="ul_sid" jdbcType="INTEGER" property="ulSid" />
+    <result column="ul_workerlevel" jdbcType="INTEGER" property="ulWorkerlevel" />
+    <result column="ul_des" jdbcType="VARCHAR" property="ulDes" />
+    <result column="ul_createtime" jdbcType="BIGINT" property="ulCreatetime" />
+    <result column="ul_remake" jdbcType="VARCHAR" property="ulRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ul_id, ul_uid, ul_o_id, ul_servicelevl, ul_sid, ul_workerlevel, ul_des, ul_createtime, 
+    ul_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uuserevaluate
+    where ul_id = #{ulId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uuserevaluate
+    where ul_id = #{ulId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UUSerevaluate">
+    insert into uuserevaluate (ul_id, ul_uid, ul_o_id, 
+      ul_servicelevl, ul_sid, ul_workerlevel, 
+      ul_des, ul_createtime, ul_remake
+      )
+    values (#{ulId,jdbcType=INTEGER}, #{ulUid,jdbcType=INTEGER}, #{ulOId,jdbcType=INTEGER}, 
+      #{ulServicelevl,jdbcType=INTEGER}, #{ulSid,jdbcType=INTEGER}, #{ulWorkerlevel,jdbcType=INTEGER}, 
+      #{ulDes,jdbcType=VARCHAR}, #{ulCreatetime,jdbcType=BIGINT}, #{ulRemake,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UUSerevaluate">
+    insert into uuserevaluate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ulId != null">
+        ul_id,
+      </if>
+      <if test="ulUid != null">
+        ul_uid,
+      </if>
+      <if test="ulOId != null">
+        ul_o_id,
+      </if>
+      <if test="ulServicelevl != null">
+        ul_servicelevl,
+      </if>
+      <if test="ulSid != null">
+        ul_sid,
+      </if>
+      <if test="ulWorkerlevel != null">
+        ul_workerlevel,
+      </if>
+      <if test="ulDes != null">
+        ul_des,
+      </if>
+      <if test="ulCreatetime != null">
+        ul_createtime,
+      </if>
+      <if test="ulRemake != null">
+        ul_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ulId != null">
+        #{ulId,jdbcType=INTEGER},
+      </if>
+      <if test="ulUid != null">
+        #{ulUid,jdbcType=INTEGER},
+      </if>
+      <if test="ulOId != null">
+        #{ulOId,jdbcType=INTEGER},
+      </if>
+      <if test="ulServicelevl != null">
+        #{ulServicelevl,jdbcType=INTEGER},
+      </if>
+      <if test="ulSid != null">
+        #{ulSid,jdbcType=INTEGER},
+      </if>
+      <if test="ulWorkerlevel != null">
+        #{ulWorkerlevel,jdbcType=INTEGER},
+      </if>
+      <if test="ulDes != null">
+        #{ulDes,jdbcType=VARCHAR},
+      </if>
+      <if test="ulCreatetime != null">
+        #{ulCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="ulRemake != null">
+        #{ulRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UUSerevaluate">
+    update uuserevaluate
+    <set>
+      <if test="ulUid != null">
+        ul_uid = #{ulUid,jdbcType=INTEGER},
+      </if>
+      <if test="ulOId != null">
+        ul_o_id = #{ulOId,jdbcType=INTEGER},
+      </if>
+      <if test="ulServicelevl != null">
+        ul_servicelevl = #{ulServicelevl,jdbcType=INTEGER},
+      </if>
+      <if test="ulSid != null">
+        ul_sid = #{ulSid,jdbcType=INTEGER},
+      </if>
+      <if test="ulWorkerlevel != null">
+        ul_workerlevel = #{ulWorkerlevel,jdbcType=INTEGER},
+      </if>
+      <if test="ulDes != null">
+        ul_des = #{ulDes,jdbcType=VARCHAR},
+      </if>
+      <if test="ulCreatetime != null">
+        ul_createtime = #{ulCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="ulRemake != null">
+        ul_remake = #{ulRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ul_id = #{ulId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UUSerevaluate">
+    update uuserevaluate
+    set ul_uid = #{ulUid,jdbcType=INTEGER},
+      ul_o_id = #{ulOId,jdbcType=INTEGER},
+      ul_servicelevl = #{ulServicelevl,jdbcType=INTEGER},
+      ul_sid = #{ulSid,jdbcType=INTEGER},
+      ul_workerlevel = #{ulWorkerlevel,jdbcType=INTEGER},
+      ul_des = #{ulDes,jdbcType=VARCHAR},
+      ul_createtime = #{ulCreatetime,jdbcType=BIGINT},
+      ul_remake = #{ulRemake,jdbcType=VARCHAR}
+    where ul_id = #{ulId,jdbcType=INTEGER}
+  </update>
+</mapper>

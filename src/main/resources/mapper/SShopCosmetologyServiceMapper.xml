@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopCosmetologyServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopCosmetologyService">
+    <id column="scs_id" jdbcType="INTEGER" property="scsId" />
+    <result column="scs_sp_shop_id" jdbcType="INTEGER" property="scsSpShopId" />
+    <result column="scs_sts_id" jdbcType="INTEGER" property="scsStsId" />
+    <result column="scs_vms_id" jdbcType="INTEGER" property="scsVmsId" />
+    <result column="scs_state" jdbcType="INTEGER" property="scsState" />
+    <association column="scs_vms_id" property="config" select="findConfig" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scs_id, scs_sp_shop_id, scs_sts_id, scs_vms_id, scs_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopcosmetologyservice
+    where scs_id = #{scsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopcosmetologyservice
+    where scs_id = #{scsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopCosmetologyService">
+    insert into sshopcosmetologyservice (scs_id, scs_sp_shop_id, scs_sts_id, 
+      scs_vms_id, scs_state)
+    values (#{scsId,jdbcType=INTEGER}, #{scsSpShopId,jdbcType=INTEGER}, #{scsStsId,jdbcType=INTEGER}, 
+      #{scsVmsId,jdbcType=INTEGER}, #{scsState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopCosmetologyService">
+    insert into sshopcosmetologyservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scsId != null">
+        scs_id,
+      </if>
+      <if test="scsSpShopId != null">
+        scs_sp_shop_id,
+      </if>
+      <if test="scsStsId != null">
+        scs_sts_id,
+      </if>
+      <if test="scsVmsId != null">
+        scs_vms_id,
+      </if>
+      <if test="scsState != null">
+        scs_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scsId != null">
+        #{scsId,jdbcType=INTEGER},
+      </if>
+      <if test="scsSpShopId != null">
+        #{scsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="scsStsId != null">
+        #{scsStsId,jdbcType=INTEGER},
+      </if>
+      <if test="scsVmsId != null">
+        #{scsVmsId,jdbcType=INTEGER},
+      </if>
+      <if test="scsState != null">
+        #{scsState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopCosmetologyService">
+    update sshopcosmetologyservice
+    <set>
+      <if test="scsSpShopId != null">
+        scs_sp_shop_id = #{scsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="scsStsId != null">
+        scs_sts_id = #{scsStsId,jdbcType=INTEGER},
+      </if>
+      <if test="scsVmsId != null">
+        scs_vms_id = #{scsVmsId,jdbcType=INTEGER},
+      </if>
+      <if test="scsState != null">
+        scs_state = #{scsState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where scs_id = #{scsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopCosmetologyService">
+    update sshopcosmetologyservice
+    set scs_sp_shop_id = #{scsSpShopId,jdbcType=INTEGER},
+      scs_sts_id = #{scsStsId,jdbcType=INTEGER},
+      scs_vms_id = #{scsVmsId,jdbcType=INTEGER},
+      scs_state = #{scsState,jdbcType=INTEGER}
+    where scs_id = #{scsId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectByPshcId 参照查询-->
+  <select id="findConfig" resultType="com.guojiang.bean.NetCarSizeConfig">
+    select
+         cs_id, cs_type, cs_des
+    from netcarsizeconfig
+    where cs_id=#{smo_carsize_id}
+  </select>
+
+  <!--List<SShopCosmetologyService> selectAllByShopId(@Param("0") Integer shopId, @Param("1") Integer state);-->
+  <select id="selectAllByShopId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopcosmetologyservice
+    where scs_sp_shop_id = #{0} and scs_state = #{1}
+  </select>
+
+  <!--SShopCosmetologyService selectByCarSize(@Param("0") Integer shopId,@Param("1") Integer carSizeId, @Param("2") Integer state);-->
+  <select id="selectByCarSize" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopcosmetologyservice
+    where scs_sp_shop_id = #{0} and scs_vms_id = #{1} and scs_state = #{2}
+  </select>
+
+
+</mapper>

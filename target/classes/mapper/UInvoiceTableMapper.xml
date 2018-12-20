@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UInvoiceTableMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UInvoiceTable">
+    <id column="ui_id" jdbcType="INTEGER" property="uiId" />
+    <result column="ui_oder_id" jdbcType="INTEGER" property="uiOderId" />
+    <result column="ui_type" jdbcType="INTEGER" property="uiType" />
+    <result column="ui_typeContent" jdbcType="VARCHAR" property="uiTypecontent" />
+    <result column="ui_dutyparagraph" jdbcType="VARCHAR" property="uiDutyparagraph" />
+    <result column="ui_invoicetitle" jdbcType="VARCHAR" property="uiInvoicetitle" />
+    <result column="ui_invoicecontent" jdbcType="VARCHAR" property="uiInvoicecontent" />
+    <result column="ui_money" jdbcType="BIGINT" property="uiMoney" />
+    <result column="ui_moredes" jdbcType="VARCHAR" property="uiMoredes" />
+    <result column="ui_remake" jdbcType="VARCHAR" property="uiRemake" />
+    <result column="ui_address" jdbcType="VARCHAR" property="uiAddress" />
+    <result column="ui_phonenumber" jdbcType="VARCHAR" property="uiPhonenumber" />
+    <result column="ui_openingbank" jdbcType="VARCHAR" property="uiOpeningbank" />
+    <result column="ui_bankacount" jdbcType="VARCHAR" property="uiBankacount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ui_id, ui_oder_id, ui_type, ui_typeContent, ui_dutyparagraph, ui_invoicetitle, ui_invoicecontent, 
+    ui_money, ui_moredes, ui_remake, ui_address, ui_phonenumber, ui_openingbank, ui_bankacount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uinvoicetable
+    where ui_id = #{uiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uinvoicetable
+    where ui_id = #{uiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UInvoiceTable">
+    insert into uinvoicetable (ui_id, ui_oder_id, ui_type, 
+      ui_typeContent, ui_dutyparagraph, ui_invoicetitle, 
+      ui_invoicecontent, ui_money, ui_moredes, 
+      ui_remake, ui_address, ui_phonenumber, 
+      ui_openingbank, ui_bankacount)
+    values (#{uiId,jdbcType=INTEGER}, #{uiOderId,jdbcType=INTEGER}, #{uiType,jdbcType=INTEGER}, 
+      #{uiTypecontent,jdbcType=VARCHAR}, #{uiDutyparagraph,jdbcType=VARCHAR}, #{uiInvoicetitle,jdbcType=VARCHAR}, 
+      #{uiInvoicecontent,jdbcType=VARCHAR}, #{uiMoney,jdbcType=BIGINT}, #{uiMoredes,jdbcType=VARCHAR}, 
+      #{uiRemake,jdbcType=VARCHAR}, #{uiAddress,jdbcType=VARCHAR}, #{uiPhonenumber,jdbcType=VARCHAR}, 
+      #{uiOpeningbank,jdbcType=VARCHAR}, #{uiBankacount,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UInvoiceTable">
+    insert into uinvoicetable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uiId != null">
+        ui_id,
+      </if>
+      <if test="uiOderId != null">
+        ui_oder_id,
+      </if>
+      <if test="uiType != null">
+        ui_type,
+      </if>
+      <if test="uiTypecontent != null">
+        ui_typeContent,
+      </if>
+      <if test="uiDutyparagraph != null">
+        ui_dutyparagraph,
+      </if>
+      <if test="uiInvoicetitle != null">
+        ui_invoicetitle,
+      </if>
+      <if test="uiInvoicecontent != null">
+        ui_invoicecontent,
+      </if>
+      <if test="uiMoney != null">
+        ui_money,
+      </if>
+      <if test="uiMoredes != null">
+        ui_moredes,
+      </if>
+      <if test="uiRemake != null">
+        ui_remake,
+      </if>
+      <if test="uiAddress != null">
+        ui_address,
+      </if>
+      <if test="uiPhonenumber != null">
+        ui_phonenumber,
+      </if>
+      <if test="uiOpeningbank != null">
+        ui_openingbank,
+      </if>
+      <if test="uiBankacount != null">
+        ui_bankacount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uiId != null">
+        #{uiId,jdbcType=INTEGER},
+      </if>
+      <if test="uiOderId != null">
+        #{uiOderId,jdbcType=INTEGER},
+      </if>
+      <if test="uiType != null">
+        #{uiType,jdbcType=INTEGER},
+      </if>
+      <if test="uiTypecontent != null">
+        #{uiTypecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="uiDutyparagraph != null">
+        #{uiDutyparagraph,jdbcType=VARCHAR},
+      </if>
+      <if test="uiInvoicetitle != null">
+        #{uiInvoicetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="uiInvoicecontent != null">
+        #{uiInvoicecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="uiMoney != null">
+        #{uiMoney,jdbcType=BIGINT},
+      </if>
+      <if test="uiMoredes != null">
+        #{uiMoredes,jdbcType=VARCHAR},
+      </if>
+      <if test="uiRemake != null">
+        #{uiRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="uiAddress != null">
+        #{uiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uiPhonenumber != null">
+        #{uiPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uiOpeningbank != null">
+        #{uiOpeningbank,jdbcType=VARCHAR},
+      </if>
+      <if test="uiBankacount != null">
+        #{uiBankacount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UInvoiceTable">
+    update uinvoicetable
+    <set>
+      <if test="uiOderId != null">
+        ui_oder_id = #{uiOderId,jdbcType=INTEGER},
+      </if>
+      <if test="uiType != null">
+        ui_type = #{uiType,jdbcType=INTEGER},
+      </if>
+      <if test="uiTypecontent != null">
+        ui_typeContent = #{uiTypecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="uiDutyparagraph != null">
+        ui_dutyparagraph = #{uiDutyparagraph,jdbcType=VARCHAR},
+      </if>
+      <if test="uiInvoicetitle != null">
+        ui_invoicetitle = #{uiInvoicetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="uiInvoicecontent != null">
+        ui_invoicecontent = #{uiInvoicecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="uiMoney != null">
+        ui_money = #{uiMoney,jdbcType=BIGINT},
+      </if>
+      <if test="uiMoredes != null">
+        ui_moredes = #{uiMoredes,jdbcType=VARCHAR},
+      </if>
+      <if test="uiRemake != null">
+        ui_remake = #{uiRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="uiAddress != null">
+        ui_address = #{uiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uiPhonenumber != null">
+        ui_phonenumber = #{uiPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uiOpeningbank != null">
+        ui_openingbank = #{uiOpeningbank,jdbcType=VARCHAR},
+      </if>
+      <if test="uiBankacount != null">
+        ui_bankacount = #{uiBankacount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ui_id = #{uiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UInvoiceTable">
+    update uinvoicetable
+    set ui_oder_id = #{uiOderId,jdbcType=INTEGER},
+      ui_type = #{uiType,jdbcType=INTEGER},
+      ui_typeContent = #{uiTypecontent,jdbcType=VARCHAR},
+      ui_dutyparagraph = #{uiDutyparagraph,jdbcType=VARCHAR},
+      ui_invoicetitle = #{uiInvoicetitle,jdbcType=VARCHAR},
+      ui_invoicecontent = #{uiInvoicecontent,jdbcType=VARCHAR},
+      ui_money = #{uiMoney,jdbcType=BIGINT},
+      ui_moredes = #{uiMoredes,jdbcType=VARCHAR},
+      ui_remake = #{uiRemake,jdbcType=VARCHAR},
+      ui_address = #{uiAddress,jdbcType=VARCHAR},
+      ui_phonenumber = #{uiPhonenumber,jdbcType=VARCHAR},
+      ui_openingbank = #{uiOpeningbank,jdbcType=VARCHAR},
+      ui_bankacount = #{uiBankacount,jdbcType=VARCHAR}
+    where ui_id = #{uiId,jdbcType=INTEGER}
+  </update>
+
+
+  <!-- UInvoiceTable selectByOderId(Integer oderId);-->
+  <select id="selectByOderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uinvoicetable
+    where ui_oder_id = #{oderId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

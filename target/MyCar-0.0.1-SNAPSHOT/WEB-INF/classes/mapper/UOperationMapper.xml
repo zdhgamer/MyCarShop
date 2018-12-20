@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UOperationMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UOperation">
+    <id column="uoo_id" jdbcType="INTEGER" property="uooId" />
+    <result column="uoo_submittime" jdbcType="BIGINT" property="uooSubmittime" />
+    <result column="uoo_des" jdbcType="VARCHAR" property="uooDes" />
+    <result column="uoo_state" jdbcType="INTEGER" property="uooState" />
+    <result column="uoo_o_id" jdbcType="INTEGER" property="uooOId" />
+    <result column="uoo_get_car_id" jdbcType="INTEGER" property="uooGetCarId" />
+    <result column="uoo_back_car_id" jdbcType="INTEGER" property="uooBackCarId" />
+    <result column="uoo_shop_id" jdbcType="INTEGER" property="uooShopId" />
+    <association column="uoo_get_car_id" property="getCarUserInfo" select="findGetCarUserInfo" />
+    <association column="uoo_back_car_id" property="backCarUserInfo" select="findBackCarUserInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uoo_id, uoo_submittime, uoo_des, uoo_state, uoo_o_id, uoo_get_car_id, uoo_back_car_id, 
+    uoo_shop_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uoperation
+    where uoo_id = #{uooId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uoperation
+    where uoo_id = #{uooId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UOperation">
+    insert into uoperation (uoo_id, uoo_submittime, uoo_des, 
+      uoo_state, uoo_o_id, uoo_get_car_id, 
+      uoo_back_car_id, uoo_shop_id)
+    values (#{uooId,jdbcType=INTEGER}, #{uooSubmittime,jdbcType=BIGINT}, #{uooDes,jdbcType=VARCHAR}, 
+      #{uooState,jdbcType=INTEGER}, #{uooOId,jdbcType=INTEGER}, #{uooGetCarId,jdbcType=INTEGER}, 
+      #{uooBackCarId,jdbcType=INTEGER}, #{uooShopId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UOperation">
+    insert into uoperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uooId != null">
+        uoo_id,
+      </if>
+      <if test="uooSubmittime != null">
+        uoo_submittime,
+      </if>
+      <if test="uooDes != null">
+        uoo_des,
+      </if>
+      <if test="uooState != null">
+        uoo_state,
+      </if>
+      <if test="uooOId != null">
+        uoo_o_id,
+      </if>
+      <if test="uooGetCarId != null">
+        uoo_get_car_id,
+      </if>
+      <if test="uooBackCarId != null">
+        uoo_back_car_id,
+      </if>
+      <if test="uooShopId != null">
+        uoo_shop_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uooId != null">
+        #{uooId,jdbcType=INTEGER},
+      </if>
+      <if test="uooSubmittime != null">
+        #{uooSubmittime,jdbcType=BIGINT},
+      </if>
+      <if test="uooDes != null">
+        #{uooDes,jdbcType=VARCHAR},
+      </if>
+      <if test="uooState != null">
+        #{uooState,jdbcType=INTEGER},
+      </if>
+      <if test="uooOId != null">
+        #{uooOId,jdbcType=INTEGER},
+      </if>
+      <if test="uooGetCarId != null">
+        #{uooGetCarId,jdbcType=INTEGER},
+      </if>
+      <if test="uooBackCarId != null">
+        #{uooBackCarId,jdbcType=INTEGER},
+      </if>
+      <if test="uooShopId != null">
+        #{uooShopId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UOperation">
+    update uoperation
+    <set>
+      <if test="uooSubmittime != null">
+        uoo_submittime = #{uooSubmittime,jdbcType=BIGINT},
+      </if>
+      <if test="uooDes != null">
+        uoo_des = #{uooDes,jdbcType=VARCHAR},
+      </if>
+      <if test="uooState != null">
+        uoo_state = #{uooState,jdbcType=INTEGER},
+      </if>
+      <if test="uooOId != null">
+        uoo_o_id = #{uooOId,jdbcType=INTEGER},
+      </if>
+      <if test="uooGetCarId != null">
+        uoo_get_car_id = #{uooGetCarId,jdbcType=INTEGER},
+      </if>
+      <if test="uooBackCarId != null">
+        uoo_back_car_id = #{uooBackCarId,jdbcType=INTEGER},
+      </if>
+      <if test="uooShopId != null">
+        uoo_shop_id = #{uooShopId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where uoo_id = #{uooId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UOperation">
+    update uoperation
+    set uoo_submittime = #{uooSubmittime,jdbcType=BIGINT},
+      uoo_des = #{uooDes,jdbcType=VARCHAR},
+      uoo_state = #{uooState,jdbcType=INTEGER},
+      uoo_o_id = #{uooOId,jdbcType=INTEGER},
+      uoo_get_car_id = #{uooGetCarId,jdbcType=INTEGER},
+      uoo_back_car_id = #{uooBackCarId,jdbcType=INTEGER},
+      uoo_shop_id = #{uooShopId,jdbcType=INTEGER}
+    where uoo_id = #{uooId,jdbcType=INTEGER}
+  </update>
+
+
+
+  <!--findGetCarUserInfo-->
+  <select id="findGetCarUserInfo" resultType="com.guojiang.bean.PGetCarUserInfo">
+    select
+    pgc_id, pgc_username, pgc_phonenumber, pgc_idcardnumber, pgc_driverpic, pgc_state,
+    pgc_getcarnum, pgc_orderjson
+    from pgetcaruserinfo
+    where pgc_id=#{uoo_get_car_id}
+  </select>
+
+  <!--findBackCarUserInfo-->
+  <select id="findBackCarUserInfo" resultType="com.guojiang.bean.PGetCarUserInfo">
+    select
+    pgc_id, pgc_username, pgc_phonenumber, pgc_idcardnumber, pgc_driverpic, pgc_state,
+    pgc_getcarnum, pgc_orderjson
+    from pgetcaruserinfo
+    where pgc_id=#{uoo_back_car_id}
+  </select>
+
+
+  <!--List<UOperation> selectByOderId(Integer oderId)-->
+  <select id="selectByOderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uoperation
+    where uoo_o_id = #{oderId,jdbcType=INTEGER}
+  </select>
+
+  <!--UOperation selectByOderIdAndState(@Param("0") Integer oderId, @Param("1") Integer state)-->
+  <select id="selectByOderIdAndState" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uoperation
+    where uoo_o_id = #{0} and uoo_state = #{1}
+  </select>
+
+
+
+</mapper>

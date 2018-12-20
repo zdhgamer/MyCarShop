@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopTotalServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopTotalService">
+    <id column="sts_id" jdbcType="INTEGER" property="stsId" />
+    <result column="sts_sp_shop_id" jdbcType="INTEGER" property="stsSpShopId" />
+    <result column="sts_sp_id" jdbcType="INTEGER" property="stsSpId" />
+    <result column="sts_state" jdbcType="INTEGER" property="stsState" />
+    <result column="sts_pause_state" jdbcType="INTEGER" property="stsPauseState" />
+    <association property="config" column="sts_sp_id" select="selectByConfigId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sts_id, sts_sp_shop_id, sts_sp_id, sts_state, sts_pause_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshoptotalservice
+    where sts_id = #{stsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshoptotalservice
+    where sts_id = #{stsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopTotalService">
+    insert into sshoptotalservice (sts_id, sts_sp_shop_id, sts_sp_id, 
+      sts_state, sts_pause_state)
+    values (#{stsId,jdbcType=INTEGER}, #{stsSpShopId,jdbcType=INTEGER}, #{stsSpId,jdbcType=INTEGER}, 
+      #{stsState,jdbcType=INTEGER}, #{stsPauseState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopTotalService">
+    insert into sshoptotalservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stsId != null">
+        sts_id,
+      </if>
+      <if test="stsSpShopId != null">
+        sts_sp_shop_id,
+      </if>
+      <if test="stsSpId != null">
+        sts_sp_id,
+      </if>
+      <if test="stsState != null">
+        sts_state,
+      </if>
+      <if test="stsPauseState != null">
+        sts_pause_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stsId != null">
+        #{stsId,jdbcType=INTEGER},
+      </if>
+      <if test="stsSpShopId != null">
+        #{stsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="stsSpId != null">
+        #{stsSpId,jdbcType=INTEGER},
+      </if>
+      <if test="stsState != null">
+        #{stsState,jdbcType=INTEGER},
+      </if>
+      <if test="stsPauseState != null">
+        #{stsPauseState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopTotalService">
+    update sshoptotalservice
+    <set>
+      <if test="stsSpShopId != null">
+        sts_sp_shop_id = #{stsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="stsSpId != null">
+        sts_sp_id = #{stsSpId,jdbcType=INTEGER},
+      </if>
+      <if test="stsState != null">
+        sts_state = #{stsState,jdbcType=INTEGER},
+      </if>
+      <if test="stsPauseState != null">
+        sts_pause_state = #{stsPauseState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sts_id = #{stsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopTotalService">
+    update sshoptotalservice
+    set sts_sp_shop_id = #{stsSpShopId,jdbcType=INTEGER},
+      sts_sp_id = #{stsSpId,jdbcType=INTEGER},
+      sts_state = #{stsState,jdbcType=INTEGER},
+      sts_pause_state = #{stsPauseState,jdbcType=INTEGER}
+    where sts_id = #{stsId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectByConfigId-->
+  <select id="selectByConfigId" parameterType="java.lang.Integer" resultType="com.guojiang.bean.PServiceProjectConfig">
+    select
+       sp_id, sp_servicetype, sp_des, sp_remake
+    from pserviceprojectconfig
+    where sp_id = #{sts_sp_id}
+  </select>
+
+  <!--selectByShopId(@Param("0")Integer shopId, @Param("1") Integer state)-->
+  <select id="selectByShopId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshoptotalservice
+    where sts_sp_shop_id = #{0} and sts_state = #{1}
+  </select>
+
+
+  <!--selectByServiceId(@Param("0")Integer shopId, @Param("1") Integer serviceId, @Param("2") Integer state)-->
+  <select id="selectByServiceId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshoptotalservice
+    where sts_sp_shop_id = #{0} and sts_sp_id = #{1} and sts_state = #{2}
+  </select>
+
+</mapper>

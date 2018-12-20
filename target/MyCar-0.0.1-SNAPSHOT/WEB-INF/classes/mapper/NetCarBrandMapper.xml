@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.NetCarBrandMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.NetCarBrand">
+    <id column="ncb_id" jdbcType="INTEGER" property="ncbId" />
+    <result column="ncb_returnid" jdbcType="INTEGER" property="ncbReturnid" />
+    <result column="ncd_name" jdbcType="VARCHAR" property="ncdName" />
+    <result column="ncb_bfirstletter" jdbcType="VARCHAR" property="ncbBfirstletter" />
+    <result column="ncb_logopic" jdbcType="VARCHAR" property="ncbLogopic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ncb_id, ncb_returnid, ncd_name, ncb_bfirstletter, ncb_logopic
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netcarbrand
+    where ncb_id = #{ncbId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from netcarbrand
+    where ncb_id = #{ncbId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.NetCarBrand">
+    insert into netcarbrand (ncb_id, ncb_returnid, ncd_name, 
+      ncb_bfirstletter, ncb_logopic)
+    values (#{ncbId,jdbcType=INTEGER}, #{ncbReturnid,jdbcType=INTEGER}, #{ncdName,jdbcType=VARCHAR}, 
+      #{ncbBfirstletter,jdbcType=VARCHAR}, #{ncbLogopic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.NetCarBrand">
+    insert into netcarbrand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ncbId != null">
+        ncb_id,
+      </if>
+      <if test="ncbReturnid != null">
+        ncb_returnid,
+      </if>
+      <if test="ncdName != null">
+        ncd_name,
+      </if>
+      <if test="ncbBfirstletter != null">
+        ncb_bfirstletter,
+      </if>
+      <if test="ncbLogopic != null">
+        ncb_logopic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ncbId != null">
+        #{ncbId,jdbcType=INTEGER},
+      </if>
+      <if test="ncbReturnid != null">
+        #{ncbReturnid,jdbcType=INTEGER},
+      </if>
+      <if test="ncdName != null">
+        #{ncdName,jdbcType=VARCHAR},
+      </if>
+      <if test="ncbBfirstletter != null">
+        #{ncbBfirstletter,jdbcType=VARCHAR},
+      </if>
+      <if test="ncbLogopic != null">
+        #{ncbLogopic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.NetCarBrand">
+    update netcarbrand
+    <set>
+      <if test="ncbReturnid != null">
+        ncb_returnid = #{ncbReturnid,jdbcType=INTEGER},
+      </if>
+      <if test="ncdName != null">
+        ncd_name = #{ncdName,jdbcType=VARCHAR},
+      </if>
+      <if test="ncbBfirstletter != null">
+        ncb_bfirstletter = #{ncbBfirstletter,jdbcType=VARCHAR},
+      </if>
+      <if test="ncbLogopic != null">
+        ncb_logopic = #{ncbLogopic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ncb_id = #{ncbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.NetCarBrand">
+    update netcarbrand
+    set ncb_returnid = #{ncbReturnid,jdbcType=INTEGER},
+      ncd_name = #{ncdName,jdbcType=VARCHAR},
+      ncb_bfirstletter = #{ncbBfirstletter,jdbcType=VARCHAR},
+      ncb_logopic = #{ncbLogopic,jdbcType=VARCHAR}
+    where ncb_id = #{ncbId,jdbcType=INTEGER}
+  </update>
+
+
+
+  <!--通过carId查找 selectByCarId(Integer carId)-->
+  <select id="selectByCarId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcarbrand
+    where ncb_returnid = #{carId,jdbcType=INTEGER}
+  </select>
+
+  <!--查询所有 List<NetCarBrand> selectAll()-->
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcarbrand
+  </select>
+
+
+</mapper>

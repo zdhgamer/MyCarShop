@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UViolationDataMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UViolationData">
+    <id column="vd_id" jdbcType="INTEGER" property="vdId" />
+    <result column="vd_error_code" jdbcType="INTEGER" property="vdErrorCode" />
+    <result column="vd_province_code" jdbcType="VARCHAR" property="vdProvinceCode" />
+    <result column="vd_province" jdbcType="VARCHAR" property="vdProvince" />
+    <result column="vd_citys" jdbcType="VARCHAR" property="vdCitys" />
+    <result column="vd_city_code" jdbcType="VARCHAR" property="vdCityCode" />
+    <result column="vd_city_name" jdbcType="VARCHAR" property="vdCityName" />
+    <result column="vd_engine" jdbcType="INTEGER" property="vdEngine" />
+    <result column="vd_engineno" jdbcType="INTEGER" property="vdEngineno" />
+    <result column="vd_class" jdbcType="INTEGER" property="vdClass" />
+    <result column="vd_classa" jdbcType="INTEGER" property="vdClassa" />
+    <result column="vd_classno" jdbcType="INTEGER" property="vdClassno" />
+    <result column="vd_remake" jdbcType="VARCHAR" property="vdRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    vd_id, vd_error_code, vd_province_code, vd_province, vd_citys, vd_city_code, vd_city_name, 
+    vd_engine, vd_engineno, vd_class, vd_classa, vd_classno, vd_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uviolationdata
+    where vd_id = #{vdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uviolationdata
+    where vd_id = #{vdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UViolationData">
+    insert into uviolationdata (vd_id, vd_error_code, vd_province_code, 
+      vd_province, vd_citys, vd_city_code, 
+      vd_city_name, vd_engine, vd_engineno, 
+      vd_class, vd_classa, vd_classno, 
+      vd_remake)
+    values (#{vdId,jdbcType=INTEGER}, #{vdErrorCode,jdbcType=INTEGER}, #{vdProvinceCode,jdbcType=VARCHAR}, 
+      #{vdProvince,jdbcType=VARCHAR}, #{vdCitys,jdbcType=VARCHAR}, #{vdCityCode,jdbcType=VARCHAR}, 
+      #{vdCityName,jdbcType=VARCHAR}, #{vdEngine,jdbcType=INTEGER}, #{vdEngineno,jdbcType=INTEGER}, 
+      #{vdClass,jdbcType=INTEGER}, #{vdClassa,jdbcType=INTEGER}, #{vdClassno,jdbcType=INTEGER}, 
+      #{vdRemake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UViolationData">
+    insert into uviolationdata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vdId != null">
+        vd_id,
+      </if>
+      <if test="vdErrorCode != null">
+        vd_error_code,
+      </if>
+      <if test="vdProvinceCode != null">
+        vd_province_code,
+      </if>
+      <if test="vdProvince != null">
+        vd_province,
+      </if>
+      <if test="vdCitys != null">
+        vd_citys,
+      </if>
+      <if test="vdCityCode != null">
+        vd_city_code,
+      </if>
+      <if test="vdCityName != null">
+        vd_city_name,
+      </if>
+      <if test="vdEngine != null">
+        vd_engine,
+      </if>
+      <if test="vdEngineno != null">
+        vd_engineno,
+      </if>
+      <if test="vdClass != null">
+        vd_class,
+      </if>
+      <if test="vdClassa != null">
+        vd_classa,
+      </if>
+      <if test="vdClassno != null">
+        vd_classno,
+      </if>
+      <if test="vdRemake != null">
+        vd_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vdId != null">
+        #{vdId,jdbcType=INTEGER},
+      </if>
+      <if test="vdErrorCode != null">
+        #{vdErrorCode,jdbcType=INTEGER},
+      </if>
+      <if test="vdProvinceCode != null">
+        #{vdProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vdProvince != null">
+        #{vdProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCitys != null">
+        #{vdCitys,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCityCode != null">
+        #{vdCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCityName != null">
+        #{vdCityName,jdbcType=VARCHAR},
+      </if>
+      <if test="vdEngine != null">
+        #{vdEngine,jdbcType=INTEGER},
+      </if>
+      <if test="vdEngineno != null">
+        #{vdEngineno,jdbcType=INTEGER},
+      </if>
+      <if test="vdClass != null">
+        #{vdClass,jdbcType=INTEGER},
+      </if>
+      <if test="vdClassa != null">
+        #{vdClassa,jdbcType=INTEGER},
+      </if>
+      <if test="vdClassno != null">
+        #{vdClassno,jdbcType=INTEGER},
+      </if>
+      <if test="vdRemake != null">
+        #{vdRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UViolationData">
+    update uviolationdata
+    <set>
+      <if test="vdErrorCode != null">
+        vd_error_code = #{vdErrorCode,jdbcType=INTEGER},
+      </if>
+      <if test="vdProvinceCode != null">
+        vd_province_code = #{vdProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vdProvince != null">
+        vd_province = #{vdProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCitys != null">
+        vd_citys = #{vdCitys,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCityCode != null">
+        vd_city_code = #{vdCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vdCityName != null">
+        vd_city_name = #{vdCityName,jdbcType=VARCHAR},
+      </if>
+      <if test="vdEngine != null">
+        vd_engine = #{vdEngine,jdbcType=INTEGER},
+      </if>
+      <if test="vdEngineno != null">
+        vd_engineno = #{vdEngineno,jdbcType=INTEGER},
+      </if>
+      <if test="vdClass != null">
+        vd_class = #{vdClass,jdbcType=INTEGER},
+      </if>
+      <if test="vdClassa != null">
+        vd_classa = #{vdClassa,jdbcType=INTEGER},
+      </if>
+      <if test="vdClassno != null">
+        vd_classno = #{vdClassno,jdbcType=INTEGER},
+      </if>
+      <if test="vdRemake != null">
+        vd_remake = #{vdRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vd_id = #{vdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UViolationData">
+    update uviolationdata
+    set vd_error_code = #{vdErrorCode,jdbcType=INTEGER},
+      vd_province_code = #{vdProvinceCode,jdbcType=VARCHAR},
+      vd_province = #{vdProvince,jdbcType=VARCHAR},
+      vd_citys = #{vdCitys,jdbcType=VARCHAR},
+      vd_city_code = #{vdCityCode,jdbcType=VARCHAR},
+      vd_city_name = #{vdCityName,jdbcType=VARCHAR},
+      vd_engine = #{vdEngine,jdbcType=INTEGER},
+      vd_engineno = #{vdEngineno,jdbcType=INTEGER},
+      vd_class = #{vdClass,jdbcType=INTEGER},
+      vd_classa = #{vdClassa,jdbcType=INTEGER},
+      vd_classno = #{vdClassno,jdbcType=INTEGER},
+      vd_remake = #{vdRemake,jdbcType=VARCHAR}
+    where vd_id = #{vdId,jdbcType=INTEGER}
+  </update>
+</mapper>

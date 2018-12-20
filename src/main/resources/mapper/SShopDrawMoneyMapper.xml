@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopDrawMoneyMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopDrawMoney">
+    <id column="sdm_id" jdbcType="INTEGER" property="sdmId" />
+    <result column="sdm_shop_id" jdbcType="INTEGER" property="sdmShopId" />
+    <result column="sdm_drawaccount" jdbcType="VARCHAR" property="sdmDrawaccount" />
+    <result column="sdm_drawtype" jdbcType="INTEGER" property="sdmDrawtype" />
+    <result column="sdm_drawnumber" jdbcType="BIGINT" property="sdmDrawnumber" />
+    <result column="sdm_drawcreatetime" jdbcType="BIGINT" property="sdmDrawcreatetime" />
+    <result column="sdm_drawaggretime" jdbcType="BIGINT" property="sdmDrawaggretime" />
+    <result column="sdm_drawstate" jdbcType="INTEGER" property="sdmDrawstate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sdm_id, sdm_shop_id, sdm_drawaccount, sdm_drawtype, sdm_drawnumber, sdm_drawcreatetime, 
+    sdm_drawaggretime, sdm_drawstate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopdrawmoney
+    where sdm_id = #{sdmId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopdrawmoney
+    where sdm_id = #{sdmId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopDrawMoney">
+    insert into sshopdrawmoney (sdm_id, sdm_shop_id, sdm_drawaccount, 
+      sdm_drawtype, sdm_drawnumber, sdm_drawcreatetime, 
+      sdm_drawaggretime, sdm_drawstate)
+    values (#{sdmId,jdbcType=INTEGER}, #{sdmShopId,jdbcType=INTEGER}, #{sdmDrawaccount,jdbcType=VARCHAR}, 
+      #{sdmDrawtype,jdbcType=INTEGER}, #{sdmDrawnumber,jdbcType=BIGINT}, #{sdmDrawcreatetime,jdbcType=BIGINT}, 
+      #{sdmDrawaggretime,jdbcType=BIGINT}, #{sdmDrawstate,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopDrawMoney">
+    insert into sshopdrawmoney
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sdmId != null">
+        sdm_id,
+      </if>
+      <if test="sdmShopId != null">
+        sdm_shop_id,
+      </if>
+      <if test="sdmDrawaccount != null">
+        sdm_drawaccount,
+      </if>
+      <if test="sdmDrawtype != null">
+        sdm_drawtype,
+      </if>
+      <if test="sdmDrawnumber != null">
+        sdm_drawnumber,
+      </if>
+      <if test="sdmDrawcreatetime != null">
+        sdm_drawcreatetime,
+      </if>
+      <if test="sdmDrawaggretime != null">
+        sdm_drawaggretime,
+      </if>
+      <if test="sdmDrawstate != null">
+        sdm_drawstate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sdmId != null">
+        #{sdmId,jdbcType=INTEGER},
+      </if>
+      <if test="sdmShopId != null">
+        #{sdmShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sdmDrawaccount != null">
+        #{sdmDrawaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sdmDrawtype != null">
+        #{sdmDrawtype,jdbcType=INTEGER},
+      </if>
+      <if test="sdmDrawnumber != null">
+        #{sdmDrawnumber,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawcreatetime != null">
+        #{sdmDrawcreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawaggretime != null">
+        #{sdmDrawaggretime,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawstate != null">
+        #{sdmDrawstate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopDrawMoney">
+    update sshopdrawmoney
+    <set>
+      <if test="sdmShopId != null">
+        sdm_shop_id = #{sdmShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sdmDrawaccount != null">
+        sdm_drawaccount = #{sdmDrawaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sdmDrawtype != null">
+        sdm_drawtype = #{sdmDrawtype,jdbcType=INTEGER},
+      </if>
+      <if test="sdmDrawnumber != null">
+        sdm_drawnumber = #{sdmDrawnumber,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawcreatetime != null">
+        sdm_drawcreatetime = #{sdmDrawcreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawaggretime != null">
+        sdm_drawaggretime = #{sdmDrawaggretime,jdbcType=BIGINT},
+      </if>
+      <if test="sdmDrawstate != null">
+        sdm_drawstate = #{sdmDrawstate,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sdm_id = #{sdmId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopDrawMoney">
+    update sshopdrawmoney
+    set sdm_shop_id = #{sdmShopId,jdbcType=INTEGER},
+      sdm_drawaccount = #{sdmDrawaccount,jdbcType=VARCHAR},
+      sdm_drawtype = #{sdmDrawtype,jdbcType=INTEGER},
+      sdm_drawnumber = #{sdmDrawnumber,jdbcType=BIGINT},
+      sdm_drawcreatetime = #{sdmDrawcreatetime,jdbcType=BIGINT},
+      sdm_drawaggretime = #{sdmDrawaggretime,jdbcType=BIGINT},
+      sdm_drawstate = #{sdmDrawstate,jdbcType=INTEGER}
+    where sdm_id = #{sdmId,jdbcType=INTEGER}
+  </update>
+
+  <!--List<SShopDrawMoney> selectByShopId(Integer shopId)-->
+  <select id="selectByShopId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopdrawmoney
+    where sdm_shop_id = #{shopId,jdbcType=INTEGER}
+  </select>
+
+
+
+</mapper>

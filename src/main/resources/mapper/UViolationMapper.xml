@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UViolationMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UViolation">
+    <id column="v_id" jdbcType="INTEGER" property="vId" />
+    <result column="v_provience" jdbcType="VARCHAR" property="vProvience" />
+    <result column="v_dtype" jdbcType="INTEGER" property="vDtype" />
+    <result column="v_format" jdbcType="INTEGER" property="vFormat" />
+    <result column="v_callback" jdbcType="VARCHAR" property="vCallback" />
+    <result column="v_key" jdbcType="VARCHAR" property="vKey" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    v_id, v_provience, v_dtype, v_format, v_callback, v_key
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uviolation
+    where v_id = #{vId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uviolation
+    where v_id = #{vId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UViolation">
+    insert into uviolation (v_id, v_provience, v_dtype, 
+      v_format, v_callback, v_key
+      )
+    values (#{vId,jdbcType=INTEGER}, #{vProvience,jdbcType=VARCHAR}, #{vDtype,jdbcType=INTEGER}, 
+      #{vFormat,jdbcType=INTEGER}, #{vCallback,jdbcType=VARCHAR}, #{vKey,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UViolation">
+    insert into uviolation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vId != null">
+        v_id,
+      </if>
+      <if test="vProvience != null">
+        v_provience,
+      </if>
+      <if test="vDtype != null">
+        v_dtype,
+      </if>
+      <if test="vFormat != null">
+        v_format,
+      </if>
+      <if test="vCallback != null">
+        v_callback,
+      </if>
+      <if test="vKey != null">
+        v_key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vId != null">
+        #{vId,jdbcType=INTEGER},
+      </if>
+      <if test="vProvience != null">
+        #{vProvience,jdbcType=VARCHAR},
+      </if>
+      <if test="vDtype != null">
+        #{vDtype,jdbcType=INTEGER},
+      </if>
+      <if test="vFormat != null">
+        #{vFormat,jdbcType=INTEGER},
+      </if>
+      <if test="vCallback != null">
+        #{vCallback,jdbcType=VARCHAR},
+      </if>
+      <if test="vKey != null">
+        #{vKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UViolation">
+    update uviolation
+    <set>
+      <if test="vProvience != null">
+        v_provience = #{vProvience,jdbcType=VARCHAR},
+      </if>
+      <if test="vDtype != null">
+        v_dtype = #{vDtype,jdbcType=INTEGER},
+      </if>
+      <if test="vFormat != null">
+        v_format = #{vFormat,jdbcType=INTEGER},
+      </if>
+      <if test="vCallback != null">
+        v_callback = #{vCallback,jdbcType=VARCHAR},
+      </if>
+      <if test="vKey != null">
+        v_key = #{vKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where v_id = #{vId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UViolation">
+    update uviolation
+    set v_provience = #{vProvience,jdbcType=VARCHAR},
+      v_dtype = #{vDtype,jdbcType=INTEGER},
+      v_format = #{vFormat,jdbcType=INTEGER},
+      v_callback = #{vCallback,jdbcType=VARCHAR},
+      v_key = #{vKey,jdbcType=VARCHAR}
+    where v_id = #{vId,jdbcType=INTEGER}
+  </update>
+</mapper>

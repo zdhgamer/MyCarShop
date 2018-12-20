@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UserInfo">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_openid" jdbcType="VARCHAR" property="uOpenid" />
+    <result column="u_nikename" jdbcType="VARCHAR" property="uNikename" />
+    <result column="u_gender" jdbcType="INTEGER" property="uGender" />
+    <result column="u_province" jdbcType="VARCHAR" property="uProvince" />
+    <result column="u_city" jdbcType="VARCHAR" property="uCity" />
+    <result column="u_country" jdbcType="VARCHAR" property="uCountry" />
+    <result column="u_headimages" jdbcType="VARCHAR" property="uHeadimages" />
+    <result column="u_latitude" jdbcType="DOUBLE" property="uLatitude" />
+    <result column="u_longitude" jdbcType="DOUBLE" property="uLongitude" />
+    <result column="u_phonenumbe" jdbcType="VARCHAR" property="uPhonenumbe" />
+    <result column="u_registertime" jdbcType="BIGINT" property="uRegistertime" />
+    <result column="u_state" jdbcType="INTEGER" property="uState" />
+    <result column="u_speatiallevl" jdbcType="INTEGER" property="uSpeatiallevl" />
+    <result column="u_remake" jdbcType="VARCHAR" property="uRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u_id, u_openid, u_nikename, u_gender, u_province, u_city, u_country, u_headimages, 
+    u_latitude, u_longitude, u_phonenumbe, u_registertime, u_state, u_speatiallevl, u_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userinfo
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userinfo
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UserInfo">
+    insert into userinfo (u_id, u_openid, u_nikename, 
+      u_gender, u_province, u_city, 
+      u_country, u_headimages, u_latitude, 
+      u_longitude, u_phonenumbe, u_registertime, 
+      u_state, u_speatiallevl, u_remake
+      )
+    values (#{uId,jdbcType=INTEGER}, #{uOpenid,jdbcType=VARCHAR}, #{uNikename,jdbcType=VARCHAR}, 
+      #{uGender,jdbcType=INTEGER}, #{uProvince,jdbcType=VARCHAR}, #{uCity,jdbcType=VARCHAR}, 
+      #{uCountry,jdbcType=VARCHAR}, #{uHeadimages,jdbcType=VARCHAR}, #{uLatitude,jdbcType=DOUBLE}, 
+      #{uLongitude,jdbcType=DOUBLE}, #{uPhonenumbe,jdbcType=VARCHAR}, #{uRegistertime,jdbcType=BIGINT}, 
+      #{uState,jdbcType=INTEGER}, #{uSpeatiallevl,jdbcType=INTEGER}, #{uRemake,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UserInfo">
+    insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="uOpenid != null">
+        u_openid,
+      </if>
+      <if test="uNikename != null">
+        u_nikename,
+      </if>
+      <if test="uGender != null">
+        u_gender,
+      </if>
+      <if test="uProvince != null">
+        u_province,
+      </if>
+      <if test="uCity != null">
+        u_city,
+      </if>
+      <if test="uCountry != null">
+        u_country,
+      </if>
+      <if test="uHeadimages != null">
+        u_headimages,
+      </if>
+      <if test="uLatitude != null">
+        u_latitude,
+      </if>
+      <if test="uLongitude != null">
+        u_longitude,
+      </if>
+      <if test="uPhonenumbe != null">
+        u_phonenumbe,
+      </if>
+      <if test="uRegistertime != null">
+        u_registertime,
+      </if>
+      <if test="uState != null">
+        u_state,
+      </if>
+      <if test="uSpeatiallevl != null">
+        u_speatiallevl,
+      </if>
+      <if test="uRemake != null">
+        u_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uOpenid != null">
+        #{uOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="uNikename != null">
+        #{uNikename,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null">
+        #{uGender,jdbcType=INTEGER},
+      </if>
+      <if test="uProvince != null">
+        #{uProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="uCity != null">
+        #{uCity,jdbcType=VARCHAR},
+      </if>
+      <if test="uCountry != null">
+        #{uCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="uHeadimages != null">
+        #{uHeadimages,jdbcType=VARCHAR},
+      </if>
+      <if test="uLatitude != null">
+        #{uLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="uLongitude != null">
+        #{uLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="uPhonenumbe != null">
+        #{uPhonenumbe,jdbcType=VARCHAR},
+      </if>
+      <if test="uRegistertime != null">
+        #{uRegistertime,jdbcType=BIGINT},
+      </if>
+      <if test="uState != null">
+        #{uState,jdbcType=INTEGER},
+      </if>
+      <if test="uSpeatiallevl != null">
+        #{uSpeatiallevl,jdbcType=INTEGER},
+      </if>
+      <if test="uRemake != null">
+        #{uRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UserInfo">
+    update userinfo
+    <set>
+      <if test="uOpenid != null">
+        u_openid = #{uOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="uNikename != null">
+        u_nikename = #{uNikename,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null">
+        u_gender = #{uGender,jdbcType=INTEGER},
+      </if>
+      <if test="uProvince != null">
+        u_province = #{uProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="uCity != null">
+        u_city = #{uCity,jdbcType=VARCHAR},
+      </if>
+      <if test="uCountry != null">
+        u_country = #{uCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="uHeadimages != null">
+        u_headimages = #{uHeadimages,jdbcType=VARCHAR},
+      </if>
+      <if test="uLatitude != null">
+        u_latitude = #{uLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="uLongitude != null">
+        u_longitude = #{uLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="uPhonenumbe != null">
+        u_phonenumbe = #{uPhonenumbe,jdbcType=VARCHAR},
+      </if>
+      <if test="uRegistertime != null">
+        u_registertime = #{uRegistertime,jdbcType=BIGINT},
+      </if>
+      <if test="uState != null">
+        u_state = #{uState,jdbcType=INTEGER},
+      </if>
+      <if test="uSpeatiallevl != null">
+        u_speatiallevl = #{uSpeatiallevl,jdbcType=INTEGER},
+      </if>
+      <if test="uRemake != null">
+        u_remake = #{uRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UserInfo">
+    update userinfo
+    set u_openid = #{uOpenid,jdbcType=VARCHAR},
+      u_nikename = #{uNikename,jdbcType=VARCHAR},
+      u_gender = #{uGender,jdbcType=INTEGER},
+      u_province = #{uProvince,jdbcType=VARCHAR},
+      u_city = #{uCity,jdbcType=VARCHAR},
+      u_country = #{uCountry,jdbcType=VARCHAR},
+      u_headimages = #{uHeadimages,jdbcType=VARCHAR},
+      u_latitude = #{uLatitude,jdbcType=DOUBLE},
+      u_longitude = #{uLongitude,jdbcType=DOUBLE},
+      u_phonenumbe = #{uPhonenumbe,jdbcType=VARCHAR},
+      u_registertime = #{uRegistertime,jdbcType=BIGINT},
+      u_state = #{uState,jdbcType=INTEGER},
+      u_speatiallevl = #{uSpeatiallevl,jdbcType=INTEGER},
+      u_remake = #{uRemake,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>

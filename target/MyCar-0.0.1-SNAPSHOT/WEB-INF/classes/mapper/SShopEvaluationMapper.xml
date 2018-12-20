@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopEvaluationMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopEvaluation">
+    <id column="sv_id" jdbcType="INTEGER" property="svId" />
+    <result column="sv_oder_id" jdbcType="INTEGER" property="svOderId" />
+    <result column="sv_user_id" jdbcType="INTEGER" property="svUserId" />
+    <result column="sv_star" jdbcType="INTEGER" property="svStar" />
+    <result column="sv_des" jdbcType="VARCHAR" property="svDes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sv_id, sv_oder_id, sv_user_id, sv_star, sv_des
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopevaluation
+    where sv_id = #{svId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopevaluation
+    where sv_id = #{svId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopEvaluation">
+    insert into sshopevaluation (sv_id, sv_oder_id, sv_user_id, 
+      sv_star, sv_des)
+    values (#{svId,jdbcType=INTEGER}, #{svOderId,jdbcType=INTEGER}, #{svUserId,jdbcType=INTEGER}, 
+      #{svStar,jdbcType=INTEGER}, #{svDes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopEvaluation">
+    insert into sshopevaluation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="svId != null">
+        sv_id,
+      </if>
+      <if test="svOderId != null">
+        sv_oder_id,
+      </if>
+      <if test="svUserId != null">
+        sv_user_id,
+      </if>
+      <if test="svStar != null">
+        sv_star,
+      </if>
+      <if test="svDes != null">
+        sv_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="svId != null">
+        #{svId,jdbcType=INTEGER},
+      </if>
+      <if test="svOderId != null">
+        #{svOderId,jdbcType=INTEGER},
+      </if>
+      <if test="svUserId != null">
+        #{svUserId,jdbcType=INTEGER},
+      </if>
+      <if test="svStar != null">
+        #{svStar,jdbcType=INTEGER},
+      </if>
+      <if test="svDes != null">
+        #{svDes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopEvaluation">
+    update sshopevaluation
+    <set>
+      <if test="svOderId != null">
+        sv_oder_id = #{svOderId,jdbcType=INTEGER},
+      </if>
+      <if test="svUserId != null">
+        sv_user_id = #{svUserId,jdbcType=INTEGER},
+      </if>
+      <if test="svStar != null">
+        sv_star = #{svStar,jdbcType=INTEGER},
+      </if>
+      <if test="svDes != null">
+        sv_des = #{svDes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sv_id = #{svId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopEvaluation">
+    update sshopevaluation
+    set sv_oder_id = #{svOderId,jdbcType=INTEGER},
+      sv_user_id = #{svUserId,jdbcType=INTEGER},
+      sv_star = #{svStar,jdbcType=INTEGER},
+      sv_des = #{svDes,jdbcType=VARCHAR}
+    where sv_id = #{svId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--SShopEvaluation selectByOderId(Integer oderId)-->
+  <select id="selectByOderId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopevaluation
+    where sv_oder_id = #{oderId,jdbcType=INTEGER}
+  </select>
+
+
+</mapper>

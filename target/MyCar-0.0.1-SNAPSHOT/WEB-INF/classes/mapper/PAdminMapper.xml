@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PAdminMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PAdmin">
+    <id column="pa_id" jdbcType="INTEGER" property="paId" />
+    <result column="pa_acount" jdbcType="VARCHAR" property="paAcount" />
+    <result column="pa_pwd" jdbcType="VARCHAR" property="paPwd" />
+    <result column="pa_jurisdiction" jdbcType="INTEGER" property="paJurisdiction" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pa_id, pa_acount, pa_pwd, pa_jurisdiction
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from padmin
+    where pa_id = #{paId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from padmin
+    where pa_id = #{paId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PAdmin">
+    insert into padmin (pa_id, pa_acount, pa_pwd, 
+      pa_jurisdiction)
+    values (#{paId,jdbcType=INTEGER}, #{paAcount,jdbcType=VARCHAR}, #{paPwd,jdbcType=VARCHAR}, 
+      #{paJurisdiction,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PAdmin">
+    insert into padmin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paId != null">
+        pa_id,
+      </if>
+      <if test="paAcount != null">
+        pa_acount,
+      </if>
+      <if test="paPwd != null">
+        pa_pwd,
+      </if>
+      <if test="paJurisdiction != null">
+        pa_jurisdiction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paId != null">
+        #{paId,jdbcType=INTEGER},
+      </if>
+      <if test="paAcount != null">
+        #{paAcount,jdbcType=VARCHAR},
+      </if>
+      <if test="paPwd != null">
+        #{paPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="paJurisdiction != null">
+        #{paJurisdiction,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PAdmin">
+    update padmin
+    <set>
+      <if test="paAcount != null">
+        pa_acount = #{paAcount,jdbcType=VARCHAR},
+      </if>
+      <if test="paPwd != null">
+        pa_pwd = #{paPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="paJurisdiction != null">
+        pa_jurisdiction = #{paJurisdiction,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pa_id = #{paId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PAdmin">
+    update padmin
+    set pa_acount = #{paAcount,jdbcType=VARCHAR},
+      pa_pwd = #{paPwd,jdbcType=VARCHAR},
+      pa_jurisdiction = #{paJurisdiction,jdbcType=INTEGER}
+    where pa_id = #{paId,jdbcType=INTEGER}
+  </update>
+</mapper>

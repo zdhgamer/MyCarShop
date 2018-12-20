@@ -4,8 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
     <settings>
+        <!-- 使用log4j2打印查询语句 -->
+        <setting name="logImpl" value="LOG4J2" />
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--当返回行的所有列都是空时，MyBatis默认返回null-->
         <setting name="returnInstanceForEmptyRow" value="true"/>
@@ -21,3 +22,4 @@
         </plugin>
     </plugins>
 </configuration>
+

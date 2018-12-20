@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PShopItemConfigMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PShopItemConfig">
+    <id column="pshc_id" jdbcType="INTEGER" property="pshcId" />
+    <result column="pshc_type" jdbcType="INTEGER" property="pshcType" />
+    <result column="pshc_des" jdbcType="VARCHAR" property="pshcDes" />
+    <result column="pshc_state" jdbcType="INTEGER" property="pshcState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pshc_id, pshc_type, pshc_des, pshc_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pshopitemconfig
+    where pshc_id = #{pshcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pshopitemconfig
+    where pshc_id = #{pshcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PShopItemConfig">
+    insert into pshopitemconfig (pshc_id, pshc_type, pshc_des, 
+      pshc_state)
+    values (#{pshcId,jdbcType=INTEGER}, #{pshcType,jdbcType=INTEGER}, #{pshcDes,jdbcType=VARCHAR}, 
+      #{pshcState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PShopItemConfig">
+    insert into pshopitemconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pshcId != null">
+        pshc_id,
+      </if>
+      <if test="pshcType != null">
+        pshc_type,
+      </if>
+      <if test="pshcDes != null">
+        pshc_des,
+      </if>
+      <if test="pshcState != null">
+        pshc_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pshcId != null">
+        #{pshcId,jdbcType=INTEGER},
+      </if>
+      <if test="pshcType != null">
+        #{pshcType,jdbcType=INTEGER},
+      </if>
+      <if test="pshcDes != null">
+        #{pshcDes,jdbcType=VARCHAR},
+      </if>
+      <if test="pshcState != null">
+        #{pshcState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PShopItemConfig">
+    update pshopitemconfig
+    <set>
+      <if test="pshcType != null">
+        pshc_type = #{pshcType,jdbcType=INTEGER},
+      </if>
+      <if test="pshcDes != null">
+        pshc_des = #{pshcDes,jdbcType=VARCHAR},
+      </if>
+      <if test="pshcState != null">
+        pshc_state = #{pshcState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pshc_id = #{pshcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PShopItemConfig">
+    update pshopitemconfig
+    set pshc_type = #{pshcType,jdbcType=INTEGER},
+      pshc_des = #{pshcDes,jdbcType=VARCHAR},
+      pshc_state = #{pshcState,jdbcType=INTEGER}
+    where pshc_id = #{pshcId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--查找所有的商品类别 selectAllConfig-->
+  <select id="selectAllConfig" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pshopitemconfig
+  </select>
+
+
+</mapper>

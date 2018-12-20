@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UAdressTableMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UAdressTable">
+    <id column="ua_id" jdbcType="INTEGER" property="uaId" />
+    <result column="ua_uid" jdbcType="INTEGER" property="uaUid" />
+    <result column="ua_rushpersonname" jdbcType="VARCHAR" property="uaRushpersonname" />
+    <result column="ua_rushphonenumber" jdbcType="VARCHAR" property="uaRushphonenumber" />
+    <result column="ua_locationprovece" jdbcType="VARCHAR" property="uaLocationprovece" />
+    <result column="ua_locationcity" jdbcType="VARCHAR" property="uaLocationcity" />
+    <result column="ua_isdefalutadress" jdbcType="INTEGER" property="uaIsdefalutadress" />
+    <result column="ua_detailslocation" jdbcType="VARCHAR" property="uaDetailslocation" />
+    <result column="ua_locationpointW" jdbcType="DOUBLE" property="uaLocationpointw" />
+    <result column="ua_locationpointJ" jdbcType="DOUBLE" property="uaLocationpointj" />
+    <result column="ua_remake" jdbcType="VARCHAR" property="uaRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ua_id, ua_uid, ua_rushpersonname, ua_rushphonenumber, ua_locationprovece, ua_locationcity, 
+    ua_isdefalutadress, ua_detailslocation, ua_locationpointW, ua_locationpointJ, ua_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uadresstable
+    where ua_id = #{uaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uadresstable
+    where ua_id = #{uaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UAdressTable">
+    insert into uadresstable (ua_id, ua_uid, ua_rushpersonname, 
+      ua_rushphonenumber, ua_locationprovece, ua_locationcity, 
+      ua_isdefalutadress, ua_detailslocation, ua_locationpointW, 
+      ua_locationpointJ, ua_remake)
+    values (#{uaId,jdbcType=INTEGER}, #{uaUid,jdbcType=INTEGER}, #{uaRushpersonname,jdbcType=VARCHAR}, 
+      #{uaRushphonenumber,jdbcType=VARCHAR}, #{uaLocationprovece,jdbcType=VARCHAR}, #{uaLocationcity,jdbcType=VARCHAR}, 
+      #{uaIsdefalutadress,jdbcType=INTEGER}, #{uaDetailslocation,jdbcType=VARCHAR}, #{uaLocationpointw,jdbcType=DOUBLE}, 
+      #{uaLocationpointj,jdbcType=DOUBLE}, #{uaRemake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UAdressTable">
+    insert into uadresstable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uaId != null">
+        ua_id,
+      </if>
+      <if test="uaUid != null">
+        ua_uid,
+      </if>
+      <if test="uaRushpersonname != null">
+        ua_rushpersonname,
+      </if>
+      <if test="uaRushphonenumber != null">
+        ua_rushphonenumber,
+      </if>
+      <if test="uaLocationprovece != null">
+        ua_locationprovece,
+      </if>
+      <if test="uaLocationcity != null">
+        ua_locationcity,
+      </if>
+      <if test="uaIsdefalutadress != null">
+        ua_isdefalutadress,
+      </if>
+      <if test="uaDetailslocation != null">
+        ua_detailslocation,
+      </if>
+      <if test="uaLocationpointw != null">
+        ua_locationpointW,
+      </if>
+      <if test="uaLocationpointj != null">
+        ua_locationpointJ,
+      </if>
+      <if test="uaRemake != null">
+        ua_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uaId != null">
+        #{uaId,jdbcType=INTEGER},
+      </if>
+      <if test="uaUid != null">
+        #{uaUid,jdbcType=INTEGER},
+      </if>
+      <if test="uaRushpersonname != null">
+        #{uaRushpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="uaRushphonenumber != null">
+        #{uaRushphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationprovece != null">
+        #{uaLocationprovece,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationcity != null">
+        #{uaLocationcity,jdbcType=VARCHAR},
+      </if>
+      <if test="uaIsdefalutadress != null">
+        #{uaIsdefalutadress,jdbcType=INTEGER},
+      </if>
+      <if test="uaDetailslocation != null">
+        #{uaDetailslocation,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationpointw != null">
+        #{uaLocationpointw,jdbcType=DOUBLE},
+      </if>
+      <if test="uaLocationpointj != null">
+        #{uaLocationpointj,jdbcType=DOUBLE},
+      </if>
+      <if test="uaRemake != null">
+        #{uaRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UAdressTable">
+    update uadresstable
+    <set>
+      <if test="uaUid != null">
+        ua_uid = #{uaUid,jdbcType=INTEGER},
+      </if>
+      <if test="uaRushpersonname != null">
+        ua_rushpersonname = #{uaRushpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="uaRushphonenumber != null">
+        ua_rushphonenumber = #{uaRushphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationprovece != null">
+        ua_locationprovece = #{uaLocationprovece,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationcity != null">
+        ua_locationcity = #{uaLocationcity,jdbcType=VARCHAR},
+      </if>
+      <if test="uaIsdefalutadress != null">
+        ua_isdefalutadress = #{uaIsdefalutadress,jdbcType=INTEGER},
+      </if>
+      <if test="uaDetailslocation != null">
+        ua_detailslocation = #{uaDetailslocation,jdbcType=VARCHAR},
+      </if>
+      <if test="uaLocationpointw != null">
+        ua_locationpointW = #{uaLocationpointw,jdbcType=DOUBLE},
+      </if>
+      <if test="uaLocationpointj != null">
+        ua_locationpointJ = #{uaLocationpointj,jdbcType=DOUBLE},
+      </if>
+      <if test="uaRemake != null">
+        ua_remake = #{uaRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ua_id = #{uaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UAdressTable">
+    update uadresstable
+    set ua_uid = #{uaUid,jdbcType=INTEGER},
+      ua_rushpersonname = #{uaRushpersonname,jdbcType=VARCHAR},
+      ua_rushphonenumber = #{uaRushphonenumber,jdbcType=VARCHAR},
+      ua_locationprovece = #{uaLocationprovece,jdbcType=VARCHAR},
+      ua_locationcity = #{uaLocationcity,jdbcType=VARCHAR},
+      ua_isdefalutadress = #{uaIsdefalutadress,jdbcType=INTEGER},
+      ua_detailslocation = #{uaDetailslocation,jdbcType=VARCHAR},
+      ua_locationpointW = #{uaLocationpointw,jdbcType=DOUBLE},
+      ua_locationpointJ = #{uaLocationpointj,jdbcType=DOUBLE},
+      ua_remake = #{uaRemake,jdbcType=VARCHAR}
+    where ua_id = #{uaId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopCosmetologyDetailMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopCosmetologyDetail">
+    <id column="scds_id" jdbcType="INTEGER" property="scdsId" />
+    <result column="scds_sp_shop_id" jdbcType="INTEGER" property="scdsSpShopId" />
+    <result column="scds_sp_sts_id" jdbcType="INTEGER" property="scdsSpStsId" />
+    <result column="scds_scs_id" jdbcType="INTEGER" property="scdsScsId" />
+    <result column="scds_cts_id" jdbcType="VARCHAR" property="scdsCtsId" />
+    <result column="scds_servicecharge" jdbcType="BIGINT" property="scdsServicecharge" />
+    <result column="scds_state" jdbcType="INTEGER" property="scdsState" />
+    <result column="scds_createtime" jdbcType="BIGINT" property="scdsCreatetime" />
+    <result column="scds_checktime" jdbcType="BIGINT" property="scdsChecktime" />
+    <result column="scds_checkstate" jdbcType="INTEGER" property="scdsCheckstate" />
+    <result column="scds_checkdes" jdbcType="VARCHAR" property="scdsCheckdes" />
+    <result column="scds_finishtime" jdbcType="INTEGER" property="scdsFinishtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scds_id, scds_sp_shop_id, scds_sp_sts_id, scds_scs_id, scds_cts_id, scds_servicecharge, 
+    scds_state, scds_createtime, scds_checktime, scds_checkstate, scds_checkdes, scds_finishtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopcosmetologydetail
+    where scds_id = #{scdsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopcosmetologydetail
+    where scds_id = #{scdsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopCosmetologyDetail">
+    insert into sshopcosmetologydetail (scds_id, scds_sp_shop_id, scds_sp_sts_id, 
+      scds_scs_id, scds_cts_id, scds_servicecharge, 
+      scds_state, scds_createtime, scds_checktime, 
+      scds_checkstate, scds_checkdes, scds_finishtime
+      )
+    values (#{scdsId,jdbcType=INTEGER}, #{scdsSpShopId,jdbcType=INTEGER}, #{scdsSpStsId,jdbcType=INTEGER}, 
+      #{scdsScsId,jdbcType=INTEGER}, #{scdsCtsId,jdbcType=VARCHAR}, #{scdsServicecharge,jdbcType=BIGINT}, 
+      #{scdsState,jdbcType=INTEGER}, #{scdsCreatetime,jdbcType=BIGINT}, #{scdsChecktime,jdbcType=BIGINT}, 
+      #{scdsCheckstate,jdbcType=INTEGER}, #{scdsCheckdes,jdbcType=VARCHAR}, #{scdsFinishtime,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopCosmetologyDetail">
+    insert into sshopcosmetologydetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scdsId != null">
+        scds_id,
+      </if>
+      <if test="scdsSpShopId != null">
+        scds_sp_shop_id,
+      </if>
+      <if test="scdsSpStsId != null">
+        scds_sp_sts_id,
+      </if>
+      <if test="scdsScsId != null">
+        scds_scs_id,
+      </if>
+      <if test="scdsCtsId != null">
+        scds_cts_id,
+      </if>
+      <if test="scdsServicecharge != null">
+        scds_servicecharge,
+      </if>
+      <if test="scdsState != null">
+        scds_state,
+      </if>
+      <if test="scdsCreatetime != null">
+        scds_createtime,
+      </if>
+      <if test="scdsChecktime != null">
+        scds_checktime,
+      </if>
+      <if test="scdsCheckstate != null">
+        scds_checkstate,
+      </if>
+      <if test="scdsCheckdes != null">
+        scds_checkdes,
+      </if>
+      <if test="scdsFinishtime != null">
+        scds_finishtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scdsId != null">
+        #{scdsId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsSpShopId != null">
+        #{scdsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsSpStsId != null">
+        #{scdsSpStsId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsScsId != null">
+        #{scdsScsId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCtsId != null">
+        #{scdsCtsId,jdbcType=VARCHAR},
+      </if>
+      <if test="scdsServicecharge != null">
+        #{scdsServicecharge,jdbcType=BIGINT},
+      </if>
+      <if test="scdsState != null">
+        #{scdsState,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCreatetime != null">
+        #{scdsCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="scdsChecktime != null">
+        #{scdsChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="scdsCheckstate != null">
+        #{scdsCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCheckdes != null">
+        #{scdsCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="scdsFinishtime != null">
+        #{scdsFinishtime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopCosmetologyDetail">
+    update sshopcosmetologydetail
+    <set>
+      <if test="scdsSpShopId != null">
+        scds_sp_shop_id = #{scdsSpShopId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsSpStsId != null">
+        scds_sp_sts_id = #{scdsSpStsId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsScsId != null">
+        scds_scs_id = #{scdsScsId,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCtsId != null">
+        scds_cts_id = #{scdsCtsId,jdbcType=VARCHAR},
+      </if>
+      <if test="scdsServicecharge != null">
+        scds_servicecharge = #{scdsServicecharge,jdbcType=BIGINT},
+      </if>
+      <if test="scdsState != null">
+        scds_state = #{scdsState,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCreatetime != null">
+        scds_createtime = #{scdsCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="scdsChecktime != null">
+        scds_checktime = #{scdsChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="scdsCheckstate != null">
+        scds_checkstate = #{scdsCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="scdsCheckdes != null">
+        scds_checkdes = #{scdsCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="scdsFinishtime != null">
+        scds_finishtime = #{scdsFinishtime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where scds_id = #{scdsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopCosmetologyDetail">
+    update sshopcosmetologydetail
+    set scds_sp_shop_id = #{scdsSpShopId,jdbcType=INTEGER},
+      scds_sp_sts_id = #{scdsSpStsId,jdbcType=INTEGER},
+      scds_scs_id = #{scdsScsId,jdbcType=INTEGER},
+      scds_cts_id = #{scdsCtsId,jdbcType=VARCHAR},
+      scds_servicecharge = #{scdsServicecharge,jdbcType=BIGINT},
+      scds_state = #{scdsState,jdbcType=INTEGER},
+      scds_createtime = #{scdsCreatetime,jdbcType=BIGINT},
+      scds_checktime = #{scdsChecktime,jdbcType=BIGINT},
+      scds_checkstate = #{scdsCheckstate,jdbcType=INTEGER},
+      scds_checkdes = #{scdsCheckdes,jdbcType=VARCHAR},
+      scds_finishtime = #{scdsFinishtime,jdbcType=INTEGER}
+    where scds_id = #{scdsId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--    List<SShopCosmetologyDetail> selectByShopIdAndCosId(@Param("0") Integer shopId, @Param("1") Integer cosId, @Param("2") Integer state);-->
+  <select id="selectByShopIdAndCosId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopcosmetologydetail
+    where scds_sp_shop_id = #{0} and scds_scs_id = #{1} and scds_state = #{2}
+  </select>
+
+  <!-- selectByShopIdAndCosIdAndCheck(@Param("0") Integer shopId, @Param("1") Integer cosId,@Param("2") Integer checkState, @Param("3") Integer state){-->
+  <select id="selectByShopIdAndCosIdAndCheck" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopcosmetologydetail
+    where scds_sp_shop_id = #{0} and scds_scs_id = #{1} and scds_checkstate = #{2} and scds_state = #{3}
+  </select>
+
+
+
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UCarInsuranceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UCarInsurance">
+    <id column="ci_id" jdbcType="INTEGER" property="ciId" />
+    <result column="ci_uid" jdbcType="INTEGER" property="ciUid" />
+    <result column="ci_company" jdbcType="VARCHAR" property="ciCompany" />
+    <result column="ci_expirationtime" jdbcType="VARCHAR" property="ciExpirationtime" />
+    <result column="ci_hostrealname" jdbcType="VARCHAR" property="ciHostrealname" />
+    <result column="ci_idcar" jdbcType="VARCHAR" property="ciIdcar" />
+    <result column="ci_city" jdbcType="VARCHAR" property="ciCity" />
+    <result column="ci_remake" jdbcType="VARCHAR" property="ciRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ci_id, ci_uid, ci_company, ci_expirationtime, ci_hostrealname, ci_idcar, ci_city, 
+    ci_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucarinsurance
+    where ci_id = #{ciId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ucarinsurance
+    where ci_id = #{ciId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UCarInsurance">
+    insert into ucarinsurance (ci_id, ci_uid, ci_company, 
+      ci_expirationtime, ci_hostrealname, ci_idcar, 
+      ci_city, ci_remake)
+    values (#{ciId,jdbcType=INTEGER}, #{ciUid,jdbcType=INTEGER}, #{ciCompany,jdbcType=VARCHAR}, 
+      #{ciExpirationtime,jdbcType=VARCHAR}, #{ciHostrealname,jdbcType=VARCHAR}, #{ciIdcar,jdbcType=VARCHAR}, 
+      #{ciCity,jdbcType=VARCHAR}, #{ciRemake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UCarInsurance">
+    insert into ucarinsurance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ciId != null">
+        ci_id,
+      </if>
+      <if test="ciUid != null">
+        ci_uid,
+      </if>
+      <if test="ciCompany != null">
+        ci_company,
+      </if>
+      <if test="ciExpirationtime != null">
+        ci_expirationtime,
+      </if>
+      <if test="ciHostrealname != null">
+        ci_hostrealname,
+      </if>
+      <if test="ciIdcar != null">
+        ci_idcar,
+      </if>
+      <if test="ciCity != null">
+        ci_city,
+      </if>
+      <if test="ciRemake != null">
+        ci_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ciId != null">
+        #{ciId,jdbcType=INTEGER},
+      </if>
+      <if test="ciUid != null">
+        #{ciUid,jdbcType=INTEGER},
+      </if>
+      <if test="ciCompany != null">
+        #{ciCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="ciExpirationtime != null">
+        #{ciExpirationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="ciHostrealname != null">
+        #{ciHostrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="ciIdcar != null">
+        #{ciIdcar,jdbcType=VARCHAR},
+      </if>
+      <if test="ciCity != null">
+        #{ciCity,jdbcType=VARCHAR},
+      </if>
+      <if test="ciRemake != null">
+        #{ciRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UCarInsurance">
+    update ucarinsurance
+    <set>
+      <if test="ciUid != null">
+        ci_uid = #{ciUid,jdbcType=INTEGER},
+      </if>
+      <if test="ciCompany != null">
+        ci_company = #{ciCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="ciExpirationtime != null">
+        ci_expirationtime = #{ciExpirationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="ciHostrealname != null">
+        ci_hostrealname = #{ciHostrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="ciIdcar != null">
+        ci_idcar = #{ciIdcar,jdbcType=VARCHAR},
+      </if>
+      <if test="ciCity != null">
+        ci_city = #{ciCity,jdbcType=VARCHAR},
+      </if>
+      <if test="ciRemake != null">
+        ci_remake = #{ciRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ci_id = #{ciId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UCarInsurance">
+    update ucarinsurance
+    set ci_uid = #{ciUid,jdbcType=INTEGER},
+      ci_company = #{ciCompany,jdbcType=VARCHAR},
+      ci_expirationtime = #{ciExpirationtime,jdbcType=VARCHAR},
+      ci_hostrealname = #{ciHostrealname,jdbcType=VARCHAR},
+      ci_idcar = #{ciIdcar,jdbcType=VARCHAR},
+      ci_city = #{ciCity,jdbcType=VARCHAR},
+      ci_remake = #{ciRemake,jdbcType=VARCHAR}
+    where ci_id = #{ciId,jdbcType=INTEGER}
+  </update>
+</mapper>

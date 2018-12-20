@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.NetCarMaketDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.NetCarMaketDetails">
+    <id column="nmd_id" jdbcType="INTEGER" property="nmdId" />
+    <result column="nmd_I" jdbcType="INTEGER" property="nmdI" />
+    <result column="nmd_N" jdbcType="VARCHAR" property="nmdN" />
+    <result column="nmd_json" jdbcType="VARCHAR" property="nmdJson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    nmd_id, nmd_I, nmd_N, nmd_json
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netcarmaketdetails
+    where nmd_id = #{nmdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from netcarmaketdetails
+    where nmd_id = #{nmdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.NetCarMaketDetails">
+    insert into netcarmaketdetails (nmd_id, nmd_I, nmd_N, 
+      nmd_json)
+    values (#{nmdId,jdbcType=INTEGER}, #{nmdI,jdbcType=INTEGER}, #{nmdN,jdbcType=VARCHAR}, 
+      #{nmdJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.NetCarMaketDetails">
+    insert into netcarmaketdetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nmdId != null">
+        nmd_id,
+      </if>
+      <if test="nmdI != null">
+        nmd_I,
+      </if>
+      <if test="nmdN != null">
+        nmd_N,
+      </if>
+      <if test="nmdJson != null">
+        nmd_json,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nmdId != null">
+        #{nmdId,jdbcType=INTEGER},
+      </if>
+      <if test="nmdI != null">
+        #{nmdI,jdbcType=INTEGER},
+      </if>
+      <if test="nmdN != null">
+        #{nmdN,jdbcType=VARCHAR},
+      </if>
+      <if test="nmdJson != null">
+        #{nmdJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.NetCarMaketDetails">
+    update netcarmaketdetails
+    <set>
+      <if test="nmdI != null">
+        nmd_I = #{nmdI,jdbcType=INTEGER},
+      </if>
+      <if test="nmdN != null">
+        nmd_N = #{nmdN,jdbcType=VARCHAR},
+      </if>
+      <if test="nmdJson != null">
+        nmd_json = #{nmdJson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nmd_id = #{nmdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.NetCarMaketDetails">
+    update netcarmaketdetails
+    set nmd_I = #{nmdI,jdbcType=INTEGER},
+      nmd_N = #{nmdN,jdbcType=VARCHAR},
+      nmd_json = #{nmdJson,jdbcType=VARCHAR}
+    where nmd_id = #{nmdId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--通过车型Id查找 selectByI(Integer I)-->
+  <select id="selectByI" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from netcarmaketdetails
+    where nmd_I = #{I,jdbcType=INTEGER}
+  </select>
+
+
+
+</mapper>

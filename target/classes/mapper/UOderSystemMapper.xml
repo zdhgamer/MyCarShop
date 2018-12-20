@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UOderSystemMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UOderSystem">
+    <id column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="o_sid" jdbcType="INTEGER" property="oSid" />
+    <result column="o_uid" jdbcType="INTEGER" property="oUid" />
+    <result column="o_locationdetails" jdbcType="VARCHAR" property="oLocationdetails" />
+    <result column="o_paytime" jdbcType="BIGINT" property="oPaytime" />
+    <result column="o_serialnumber" jdbcType="VARCHAR" property="oSerialnumber" />
+    <result column="o_serviceprice" jdbcType="BIGINT" property="oServiceprice" />
+    <result column="o_alldiscounts" jdbcType="BIGINT" property="oAlldiscounts" />
+    <result column="o_needpay" jdbcType="BIGINT" property="oNeedpay" />
+    <result column="o_subscription" jdbcType="BIGINT" property="oSubscription" />
+    <result column="o_actualpayment" jdbcType="BIGINT" property="oActualpayment" />
+    <result column="o_remainingpayment" jdbcType="BIGINT" property="oRemainingpayment" />
+    <result column="o_uoo_id" jdbcType="INTEGER" property="oUooId" />
+    <result column="o_state" jdbcType="INTEGER" property="oState" />
+    <result column="o_createtime" jdbcType="BIGINT" property="oCreatetime" />
+    <result column="o_remake" jdbcType="VARCHAR" property="oRemake" />
+    <result column="o_daycount" jdbcType="INTEGER" property="oDaycount" />
+    <result column="o_payway" jdbcType="INTEGER" property="oPayway" />
+    <result column="o_user_car_id" jdbcType="INTEGER" property="oUserCarId" />
+    <result column="o_isgetcaruser" jdbcType="INTEGER" property="oIsgetcaruser" />
+    <result column="o_getcarmoney" jdbcType="BIGINT" property="oGetcarmoney" />
+    <association column="o_uid" property="userInfo" select="findUserInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    o_id, o_sid, o_uid, o_locationdetails, o_paytime, o_serialnumber, o_serviceprice, 
+    o_alldiscounts, o_needpay, o_subscription, o_actualpayment, o_remainingpayment, o_uoo_id, 
+    o_state, o_createtime, o_remake, o_daycount, o_payway, o_user_car_id, o_isgetcaruser, 
+    o_getcarmoney
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uodersystem
+    where o_id = #{oId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from uodersystem
+    where o_id = #{oId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UOderSystem">
+    insert into uodersystem (o_id, o_sid, o_uid, 
+      o_locationdetails, o_paytime, o_serialnumber, 
+      o_serviceprice, o_alldiscounts, o_needpay, 
+      o_subscription, o_actualpayment, o_remainingpayment, 
+      o_uoo_id, o_state, o_createtime, 
+      o_remake, o_daycount, o_payway, 
+      o_user_car_id, o_isgetcaruser, o_getcarmoney
+      )
+    values (#{oId,jdbcType=INTEGER}, #{oSid,jdbcType=INTEGER}, #{oUid,jdbcType=INTEGER}, 
+      #{oLocationdetails,jdbcType=VARCHAR}, #{oPaytime,jdbcType=BIGINT}, #{oSerialnumber,jdbcType=VARCHAR}, 
+      #{oServiceprice,jdbcType=BIGINT}, #{oAlldiscounts,jdbcType=BIGINT}, #{oNeedpay,jdbcType=BIGINT}, 
+      #{oSubscription,jdbcType=BIGINT}, #{oActualpayment,jdbcType=BIGINT}, #{oRemainingpayment,jdbcType=BIGINT}, 
+      #{oUooId,jdbcType=INTEGER}, #{oState,jdbcType=INTEGER}, #{oCreatetime,jdbcType=BIGINT}, 
+      #{oRemake,jdbcType=VARCHAR}, #{oDaycount,jdbcType=INTEGER}, #{oPayway,jdbcType=INTEGER}, 
+      #{oUserCarId,jdbcType=INTEGER}, #{oIsgetcaruser,jdbcType=INTEGER}, #{oGetcarmoney,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UOderSystem">
+    insert into uodersystem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        o_id,
+      </if>
+      <if test="oSid != null">
+        o_sid,
+      </if>
+      <if test="oUid != null">
+        o_uid,
+      </if>
+      <if test="oLocationdetails != null">
+        o_locationdetails,
+      </if>
+      <if test="oPaytime != null">
+        o_paytime,
+      </if>
+      <if test="oSerialnumber != null">
+        o_serialnumber,
+      </if>
+      <if test="oServiceprice != null">
+        o_serviceprice,
+      </if>
+      <if test="oAlldiscounts != null">
+        o_alldiscounts,
+      </if>
+      <if test="oNeedpay != null">
+        o_needpay,
+      </if>
+      <if test="oSubscription != null">
+        o_subscription,
+      </if>
+      <if test="oActualpayment != null">
+        o_actualpayment,
+      </if>
+      <if test="oRemainingpayment != null">
+        o_remainingpayment,
+      </if>
+      <if test="oUooId != null">
+        o_uoo_id,
+      </if>
+      <if test="oState != null">
+        o_state,
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime,
+      </if>
+      <if test="oRemake != null">
+        o_remake,
+      </if>
+      <if test="oDaycount != null">
+        o_daycount,
+      </if>
+      <if test="oPayway != null">
+        o_payway,
+      </if>
+      <if test="oUserCarId != null">
+        o_user_car_id,
+      </if>
+      <if test="oIsgetcaruser != null">
+        o_isgetcaruser,
+      </if>
+      <if test="oGetcarmoney != null">
+        o_getcarmoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        #{oId,jdbcType=INTEGER},
+      </if>
+      <if test="oSid != null">
+        #{oSid,jdbcType=INTEGER},
+      </if>
+      <if test="oUid != null">
+        #{oUid,jdbcType=INTEGER},
+      </if>
+      <if test="oLocationdetails != null">
+        #{oLocationdetails,jdbcType=VARCHAR},
+      </if>
+      <if test="oPaytime != null">
+        #{oPaytime,jdbcType=BIGINT},
+      </if>
+      <if test="oSerialnumber != null">
+        #{oSerialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="oServiceprice != null">
+        #{oServiceprice,jdbcType=BIGINT},
+      </if>
+      <if test="oAlldiscounts != null">
+        #{oAlldiscounts,jdbcType=BIGINT},
+      </if>
+      <if test="oNeedpay != null">
+        #{oNeedpay,jdbcType=BIGINT},
+      </if>
+      <if test="oSubscription != null">
+        #{oSubscription,jdbcType=BIGINT},
+      </if>
+      <if test="oActualpayment != null">
+        #{oActualpayment,jdbcType=BIGINT},
+      </if>
+      <if test="oRemainingpayment != null">
+        #{oRemainingpayment,jdbcType=BIGINT},
+      </if>
+      <if test="oUooId != null">
+        #{oUooId,jdbcType=INTEGER},
+      </if>
+      <if test="oState != null">
+        #{oState,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        #{oCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="oRemake != null">
+        #{oRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="oDaycount != null">
+        #{oDaycount,jdbcType=INTEGER},
+      </if>
+      <if test="oPayway != null">
+        #{oPayway,jdbcType=INTEGER},
+      </if>
+      <if test="oUserCarId != null">
+        #{oUserCarId,jdbcType=INTEGER},
+      </if>
+      <if test="oIsgetcaruser != null">
+        #{oIsgetcaruser,jdbcType=INTEGER},
+      </if>
+      <if test="oGetcarmoney != null">
+        #{oGetcarmoney,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UOderSystem">
+    update uodersystem
+    <set>
+      <if test="oSid != null">
+        o_sid = #{oSid,jdbcType=INTEGER},
+      </if>
+      <if test="oUid != null">
+        o_uid = #{oUid,jdbcType=INTEGER},
+      </if>
+      <if test="oLocationdetails != null">
+        o_locationdetails = #{oLocationdetails,jdbcType=VARCHAR},
+      </if>
+      <if test="oPaytime != null">
+        o_paytime = #{oPaytime,jdbcType=BIGINT},
+      </if>
+      <if test="oSerialnumber != null">
+        o_serialnumber = #{oSerialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="oServiceprice != null">
+        o_serviceprice = #{oServiceprice,jdbcType=BIGINT},
+      </if>
+      <if test="oAlldiscounts != null">
+        o_alldiscounts = #{oAlldiscounts,jdbcType=BIGINT},
+      </if>
+      <if test="oNeedpay != null">
+        o_needpay = #{oNeedpay,jdbcType=BIGINT},
+      </if>
+      <if test="oSubscription != null">
+        o_subscription = #{oSubscription,jdbcType=BIGINT},
+      </if>
+      <if test="oActualpayment != null">
+        o_actualpayment = #{oActualpayment,jdbcType=BIGINT},
+      </if>
+      <if test="oRemainingpayment != null">
+        o_remainingpayment = #{oRemainingpayment,jdbcType=BIGINT},
+      </if>
+      <if test="oUooId != null">
+        o_uoo_id = #{oUooId,jdbcType=INTEGER},
+      </if>
+      <if test="oState != null">
+        o_state = #{oState,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime = #{oCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="oRemake != null">
+        o_remake = #{oRemake,jdbcType=VARCHAR},
+      </if>
+      <if test="oDaycount != null">
+        o_daycount = #{oDaycount,jdbcType=INTEGER},
+      </if>
+      <if test="oPayway != null">
+        o_payway = #{oPayway,jdbcType=INTEGER},
+      </if>
+      <if test="oUserCarId != null">
+        o_user_car_id = #{oUserCarId,jdbcType=INTEGER},
+      </if>
+      <if test="oIsgetcaruser != null">
+        o_isgetcaruser = #{oIsgetcaruser,jdbcType=INTEGER},
+      </if>
+      <if test="oGetcarmoney != null">
+        o_getcarmoney = #{oGetcarmoney,jdbcType=BIGINT},
+      </if>
+    </set>
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UOderSystem">
+    update uodersystem
+    set o_sid = #{oSid,jdbcType=INTEGER},
+      o_uid = #{oUid,jdbcType=INTEGER},
+      o_locationdetails = #{oLocationdetails,jdbcType=VARCHAR},
+      o_paytime = #{oPaytime,jdbcType=BIGINT},
+      o_serialnumber = #{oSerialnumber,jdbcType=VARCHAR},
+      o_serviceprice = #{oServiceprice,jdbcType=BIGINT},
+      o_alldiscounts = #{oAlldiscounts,jdbcType=BIGINT},
+      o_needpay = #{oNeedpay,jdbcType=BIGINT},
+      o_subscription = #{oSubscription,jdbcType=BIGINT},
+      o_actualpayment = #{oActualpayment,jdbcType=BIGINT},
+      o_remainingpayment = #{oRemainingpayment,jdbcType=BIGINT},
+      o_uoo_id = #{oUooId,jdbcType=INTEGER},
+      o_state = #{oState,jdbcType=INTEGER},
+      o_createtime = #{oCreatetime,jdbcType=BIGINT},
+      o_remake = #{oRemake,jdbcType=VARCHAR},
+      o_daycount = #{oDaycount,jdbcType=INTEGER},
+      o_payway = #{oPayway,jdbcType=INTEGER},
+      o_user_car_id = #{oUserCarId,jdbcType=INTEGER},
+      o_isgetcaruser = #{oIsgetcaruser,jdbcType=INTEGER},
+      o_getcarmoney = #{oGetcarmoney,jdbcType=BIGINT}
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+
+  <!--findUserInfo 参照查询-->
+  <select id="findUserInfo" resultType="com.guojiang.bean.UserInfo">
+    select
+      u_id, u_openid, u_nikename, u_gender, u_province, u_city, u_country, u_headimages,
+      u_latitude, u_longitude, u_phonenumbe, u_registertime, u_state, u_speatiallevl, u_remake
+    from userinfo
+    where u_id=#{o_uid}
+  </select>
+
+  <!-- Integer selectAllByShopIdAndStateCount(@Param("0")Integer shopId, @Param("1")Integer state);-->
+
+  <select id="selectAllByShopIdAndStateCount" resultType="java.lang.Integer">
+    select count(*)
+    from uodersystem
+    where o_sid = #{0} and o_state = #{1} and o_payway !=3
+  </select>
+
+
+  <!--selectAllByShopId(Integer shopId)-->
+
+  <select id="selectAllByShopId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uodersystem
+    where o_sid = #{o_locationdetails,jdbcType=INTEGER} and o_payway !=3
+  </select>
+
+
+  <!--selectAllByShopIdAndState(@Param("0")Integer shopId, @Param("1")Integer state)-->
+  <select id="selectAllByShopIdAndState" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uodersystem
+    where o_sid = #{0} and o_state = #{1} and o_payway !=3
+  </select>
+
+
+  <!--selectAllByShopIdAndMinMaxState(@Param("0")Integer shopId,@Param("1")Integer minState,@Param("2")Integer maxState)-->
+
+  <select id="selectAllByShopIdAndMinMaxState" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from uodersystem
+    where o_sid = #{0} and o_state &gt;= #{1} and o_state &lt;= #{2} and o_payway !=3
+  </select>
+
+  <!--    Integer selectAllByShopIdAndMinMaxStateCount(@Param("0")Integer shopId,@Param("1")Integer minState,@Param("2")Integer maxState);-->
+
+  <select id="selectAllByShopIdAndMinMaxStateCount" resultType="java.lang.Integer">
+    select count(*)
+    from uodersystem
+    where o_sid = #{0} and o_state &gt;= #{1} and o_state &lt;= #{2} and o_payway !=3 and o_state!=8
+  </select>
+
+</mapper>

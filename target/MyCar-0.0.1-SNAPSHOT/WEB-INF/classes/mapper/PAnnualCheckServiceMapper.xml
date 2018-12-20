@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PAnnualCheckServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PAnnualCheckService">
+    <id column="pac_id" jdbcType="INTEGER" property="pacId" />
+    <result column="pac_config_id" jdbcType="INTEGER" property="pacConfigId" />
+    <result column="pac_ordermoney" jdbcType="BIGINT" property="pacOrdermoney" />
+    <result column="pac_state" jdbcType="INTEGER" property="pacState" />
+    <result column="pac_car_des" jdbcType="VARCHAR" property="pacCarDes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pac_id, pac_config_id, pac_ordermoney, pac_state, pac_car_des
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pannualcheckservice
+    where pac_id = #{pacId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pannualcheckservice
+    where pac_id = #{pacId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PAnnualCheckService">
+    insert into pannualcheckservice (pac_id, pac_config_id, pac_ordermoney, 
+      pac_state, pac_car_des)
+    values (#{pacId,jdbcType=INTEGER}, #{pacConfigId,jdbcType=INTEGER}, #{pacOrdermoney,jdbcType=BIGINT}, 
+      #{pacState,jdbcType=INTEGER}, #{pacCarDes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PAnnualCheckService">
+    insert into pannualcheckservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pacId != null">
+        pac_id,
+      </if>
+      <if test="pacConfigId != null">
+        pac_config_id,
+      </if>
+      <if test="pacOrdermoney != null">
+        pac_ordermoney,
+      </if>
+      <if test="pacState != null">
+        pac_state,
+      </if>
+      <if test="pacCarDes != null">
+        pac_car_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pacId != null">
+        #{pacId,jdbcType=INTEGER},
+      </if>
+      <if test="pacConfigId != null">
+        #{pacConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="pacOrdermoney != null">
+        #{pacOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="pacState != null">
+        #{pacState,jdbcType=INTEGER},
+      </if>
+      <if test="pacCarDes != null">
+        #{pacCarDes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PAnnualCheckService">
+    update pannualcheckservice
+    <set>
+      <if test="pacConfigId != null">
+        pac_config_id = #{pacConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="pacOrdermoney != null">
+        pac_ordermoney = #{pacOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="pacState != null">
+        pac_state = #{pacState,jdbcType=INTEGER},
+      </if>
+      <if test="pacCarDes != null">
+        pac_car_des = #{pacCarDes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pac_id = #{pacId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PAnnualCheckService">
+    update pannualcheckservice
+    set pac_config_id = #{pacConfigId,jdbcType=INTEGER},
+      pac_ordermoney = #{pacOrdermoney,jdbcType=BIGINT},
+      pac_state = #{pacState,jdbcType=INTEGER},
+      pac_car_des = #{pacCarDes,jdbcType=VARCHAR}
+    where pac_id = #{pacId,jdbcType=INTEGER}
+  </update>
+</mapper>

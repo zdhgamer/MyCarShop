@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopItemDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopItemDetails">
+    <id column="sshd_id" jdbcType="INTEGER" property="sshdId" />
+    <result column="sshd_shop_id" jdbcType="INTEGER" property="sshdShopId" />
+    <result column="sshd_ssh_id" jdbcType="INTEGER" property="sshdSshId" />
+    <result column="sshd_despicone" jdbcType="VARCHAR" property="sshdDespicone" />
+    <result column="sshd_usedes" jdbcType="VARCHAR" property="sshdUsedes" />
+    <result column="sshd_price" jdbcType="BIGINT" property="sshdPrice" />
+    <result column="sshd_ssfc_show" jdbcType="VARCHAR" property="sshdSsfcShow" />
+    <result column="sshd_ssfc_json" jdbcType="VARCHAR" property="sshdSsfcJson" />
+    <result column="sshd_state" jdbcType="INTEGER" property="sshdState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sshd_id, sshd_shop_id, sshd_ssh_id, sshd_despicone, sshd_usedes, sshd_price, sshd_ssfc_show, 
+    sshd_ssfc_json, sshd_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopitemdetails
+    where sshd_id = #{sshdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopitemdetails
+    where sshd_id = #{sshdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopItemDetails">
+    insert into sshopitemdetails (sshd_id, sshd_shop_id, sshd_ssh_id, 
+      sshd_despicone, sshd_usedes, sshd_price, 
+      sshd_ssfc_show, sshd_ssfc_json, sshd_state
+      )
+    values (#{sshdId,jdbcType=INTEGER}, #{sshdShopId,jdbcType=INTEGER}, #{sshdSshId,jdbcType=INTEGER}, 
+      #{sshdDespicone,jdbcType=VARCHAR}, #{sshdUsedes,jdbcType=VARCHAR}, #{sshdPrice,jdbcType=BIGINT}, 
+      #{sshdSsfcShow,jdbcType=VARCHAR}, #{sshdSsfcJson,jdbcType=VARCHAR}, #{sshdState,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopItemDetails">
+    insert into sshopitemdetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sshdId != null">
+        sshd_id,
+      </if>
+      <if test="sshdShopId != null">
+        sshd_shop_id,
+      </if>
+      <if test="sshdSshId != null">
+        sshd_ssh_id,
+      </if>
+      <if test="sshdDespicone != null">
+        sshd_despicone,
+      </if>
+      <if test="sshdUsedes != null">
+        sshd_usedes,
+      </if>
+      <if test="sshdPrice != null">
+        sshd_price,
+      </if>
+      <if test="sshdSsfcShow != null">
+        sshd_ssfc_show,
+      </if>
+      <if test="sshdSsfcJson != null">
+        sshd_ssfc_json,
+      </if>
+      <if test="sshdState != null">
+        sshd_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sshdId != null">
+        #{sshdId,jdbcType=INTEGER},
+      </if>
+      <if test="sshdShopId != null">
+        #{sshdShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sshdSshId != null">
+        #{sshdSshId,jdbcType=INTEGER},
+      </if>
+      <if test="sshdDespicone != null">
+        #{sshdDespicone,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdUsedes != null">
+        #{sshdUsedes,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdPrice != null">
+        #{sshdPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sshdSsfcShow != null">
+        #{sshdSsfcShow,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdSsfcJson != null">
+        #{sshdSsfcJson,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdState != null">
+        #{sshdState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopItemDetails">
+    update sshopitemdetails
+    <set>
+      <if test="sshdShopId != null">
+        sshd_shop_id = #{sshdShopId,jdbcType=INTEGER},
+      </if>
+      <if test="sshdSshId != null">
+        sshd_ssh_id = #{sshdSshId,jdbcType=INTEGER},
+      </if>
+      <if test="sshdDespicone != null">
+        sshd_despicone = #{sshdDespicone,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdUsedes != null">
+        sshd_usedes = #{sshdUsedes,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdPrice != null">
+        sshd_price = #{sshdPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sshdSsfcShow != null">
+        sshd_ssfc_show = #{sshdSsfcShow,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdSsfcJson != null">
+        sshd_ssfc_json = #{sshdSsfcJson,jdbcType=VARCHAR},
+      </if>
+      <if test="sshdState != null">
+        sshd_state = #{sshdState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sshd_id = #{sshdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopItemDetails">
+    update sshopitemdetails
+    set sshd_shop_id = #{sshdShopId,jdbcType=INTEGER},
+      sshd_ssh_id = #{sshdSshId,jdbcType=INTEGER},
+      sshd_despicone = #{sshdDespicone,jdbcType=VARCHAR},
+      sshd_usedes = #{sshdUsedes,jdbcType=VARCHAR},
+      sshd_price = #{sshdPrice,jdbcType=BIGINT},
+      sshd_ssfc_show = #{sshdSsfcShow,jdbcType=VARCHAR},
+      sshd_ssfc_json = #{sshdSsfcJson,jdbcType=VARCHAR},
+      sshd_state = #{sshdState,jdbcType=INTEGER}
+    where sshd_id = #{sshdId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectAllByTypeId selectAllByTypeId(@Param("0")Integer shopId, @Param("1") Integer typeId, @Param("2")Integer canUse)-->
+  <select id="selectAllByTypeId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopitemdetails
+    where sshd_shop_id = #{0} and sshd_ssh_id = #{1} and sshd_state = #{2}
+  </select>
+
+</mapper>

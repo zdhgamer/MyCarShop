@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PCosmetologyServiceConfigMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PCosmetologyServiceConfig">
+    <id column="cts_id" jdbcType="INTEGER" property="ctsId" />
+    <result column="cts_sp_id" jdbcType="INTEGER" property="ctsSpId" />
+    <result column="cts_type" jdbcType="INTEGER" property="ctsType" />
+    <result column="cts_des" jdbcType="VARCHAR" property="ctsDes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cts_id, cts_sp_id, cts_type, cts_des
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pcosmetologyserviceconfig
+    where cts_id = #{ctsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pcosmetologyserviceconfig
+    where cts_id = #{ctsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PCosmetologyServiceConfig">
+    insert into pcosmetologyserviceconfig (cts_id, cts_sp_id, cts_type, 
+      cts_des)
+    values (#{ctsId,jdbcType=INTEGER}, #{ctsSpId,jdbcType=INTEGER}, #{ctsType,jdbcType=INTEGER}, 
+      #{ctsDes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PCosmetologyServiceConfig">
+    insert into pcosmetologyserviceconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctsId != null">
+        cts_id,
+      </if>
+      <if test="ctsSpId != null">
+        cts_sp_id,
+      </if>
+      <if test="ctsType != null">
+        cts_type,
+      </if>
+      <if test="ctsDes != null">
+        cts_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctsId != null">
+        #{ctsId,jdbcType=INTEGER},
+      </if>
+      <if test="ctsSpId != null">
+        #{ctsSpId,jdbcType=INTEGER},
+      </if>
+      <if test="ctsType != null">
+        #{ctsType,jdbcType=INTEGER},
+      </if>
+      <if test="ctsDes != null">
+        #{ctsDes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PCosmetologyServiceConfig">
+    update pcosmetologyserviceconfig
+    <set>
+      <if test="ctsSpId != null">
+        cts_sp_id = #{ctsSpId,jdbcType=INTEGER},
+      </if>
+      <if test="ctsType != null">
+        cts_type = #{ctsType,jdbcType=INTEGER},
+      </if>
+      <if test="ctsDes != null">
+        cts_des = #{ctsDes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cts_id = #{ctsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PCosmetologyServiceConfig">
+    update pcosmetologyserviceconfig
+    set cts_sp_id = #{ctsSpId,jdbcType=INTEGER},
+      cts_type = #{ctsType,jdbcType=INTEGER},
+      cts_des = #{ctsDes,jdbcType=VARCHAR}
+    where cts_id = #{ctsId,jdbcType=INTEGER}
+  </update>
+</mapper>

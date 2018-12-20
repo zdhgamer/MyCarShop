@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.PHelpCarServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.PHelpCarService">
+    <id column="phs_id" jdbcType="INTEGER" property="phsId" />
+    <result column="phs_config_id" jdbcType="INTEGER" property="phsConfigId" />
+    <result column="phs_ordermoney" jdbcType="BIGINT" property="phsOrdermoney" />
+    <result column="phs_state" jdbcType="INTEGER" property="phsState" />
+    <result column="phs_car_des" jdbcType="VARCHAR" property="phsCarDes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    phs_id, phs_config_id, phs_ordermoney, phs_state, phs_car_des
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phelpcarservice
+    where phs_id = #{phsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from phelpcarservice
+    where phs_id = #{phsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.PHelpCarService">
+    insert into phelpcarservice (phs_id, phs_config_id, phs_ordermoney, 
+      phs_state, phs_car_des)
+    values (#{phsId,jdbcType=INTEGER}, #{phsConfigId,jdbcType=INTEGER}, #{phsOrdermoney,jdbcType=BIGINT}, 
+      #{phsState,jdbcType=INTEGER}, #{phsCarDes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.PHelpCarService">
+    insert into phelpcarservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phsId != null">
+        phs_id,
+      </if>
+      <if test="phsConfigId != null">
+        phs_config_id,
+      </if>
+      <if test="phsOrdermoney != null">
+        phs_ordermoney,
+      </if>
+      <if test="phsState != null">
+        phs_state,
+      </if>
+      <if test="phsCarDes != null">
+        phs_car_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phsId != null">
+        #{phsId,jdbcType=INTEGER},
+      </if>
+      <if test="phsConfigId != null">
+        #{phsConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="phsOrdermoney != null">
+        #{phsOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="phsState != null">
+        #{phsState,jdbcType=INTEGER},
+      </if>
+      <if test="phsCarDes != null">
+        #{phsCarDes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.PHelpCarService">
+    update phelpcarservice
+    <set>
+      <if test="phsConfigId != null">
+        phs_config_id = #{phsConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="phsOrdermoney != null">
+        phs_ordermoney = #{phsOrdermoney,jdbcType=BIGINT},
+      </if>
+      <if test="phsState != null">
+        phs_state = #{phsState,jdbcType=INTEGER},
+      </if>
+      <if test="phsCarDes != null">
+        phs_car_des = #{phsCarDes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where phs_id = #{phsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.PHelpCarService">
+    update phelpcarservice
+    set phs_config_id = #{phsConfigId,jdbcType=INTEGER},
+      phs_ordermoney = #{phsOrdermoney,jdbcType=BIGINT},
+      phs_state = #{phsState,jdbcType=INTEGER},
+      phs_car_des = #{phsCarDes,jdbcType=VARCHAR}
+    where phs_id = #{phsId,jdbcType=INTEGER}
+  </update>
+</mapper>

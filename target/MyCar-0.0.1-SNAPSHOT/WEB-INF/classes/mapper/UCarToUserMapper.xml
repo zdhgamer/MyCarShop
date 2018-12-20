@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.UCarToUserMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.UCarToUser">
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_uid" jdbcType="INTEGER" property="cUid" />
+    <result column="c_type" jdbcType="INTEGER" property="cType" />
+    <result column="c_brand" jdbcType="VARCHAR" property="cBrand" />
+    <result column="c_model" jdbcType="VARCHAR" property="cModel" />
+    <result column="c_description" jdbcType="VARCHAR" property="cDescription" />
+    <result column="c_enginecapacity" jdbcType="VARCHAR" property="cEnginecapacity" />
+    <result column="c_productiveyear" jdbcType="VARCHAR" property="cProductiveyear" />
+    <result column="c_imagedes" jdbcType="VARCHAR" property="cImagedes" />
+    <result column="c_theroadoftime" jdbcType="VARCHAR" property="cTheroadoftime" />
+    <result column="c_roadhaul" jdbcType="DOUBLE" property="cRoadhaul" />
+    <result column="c_registertime" jdbcType="BIGINT" property="cRegistertime" />
+    <result column="c_remake" jdbcType="VARCHAR" property="cRemake" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    c_id, c_uid, c_type, c_brand, c_model, c_description, c_enginecapacity, c_productiveyear, 
+    c_imagedes, c_theroadoftime, c_roadhaul, c_registertime, c_remake
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ucartouser
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ucartouser
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.UCarToUser">
+    insert into ucartouser (c_id, c_uid, c_type, 
+      c_brand, c_model, c_description, 
+      c_enginecapacity, c_productiveyear, c_imagedes, 
+      c_theroadoftime, c_roadhaul, c_registertime, 
+      c_remake)
+    values (#{cId,jdbcType=INTEGER}, #{cUid,jdbcType=INTEGER}, #{cType,jdbcType=INTEGER}, 
+      #{cBrand,jdbcType=VARCHAR}, #{cModel,jdbcType=VARCHAR}, #{cDescription,jdbcType=VARCHAR}, 
+      #{cEnginecapacity,jdbcType=VARCHAR}, #{cProductiveyear,jdbcType=VARCHAR}, #{cImagedes,jdbcType=VARCHAR}, 
+      #{cTheroadoftime,jdbcType=VARCHAR}, #{cRoadhaul,jdbcType=DOUBLE}, #{cRegistertime,jdbcType=BIGINT}, 
+      #{cRemake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.UCarToUser">
+    insert into ucartouser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cUid != null">
+        c_uid,
+      </if>
+      <if test="cType != null">
+        c_type,
+      </if>
+      <if test="cBrand != null">
+        c_brand,
+      </if>
+      <if test="cModel != null">
+        c_model,
+      </if>
+      <if test="cDescription != null">
+        c_description,
+      </if>
+      <if test="cEnginecapacity != null">
+        c_enginecapacity,
+      </if>
+      <if test="cProductiveyear != null">
+        c_productiveyear,
+      </if>
+      <if test="cImagedes != null">
+        c_imagedes,
+      </if>
+      <if test="cTheroadoftime != null">
+        c_theroadoftime,
+      </if>
+      <if test="cRoadhaul != null">
+        c_roadhaul,
+      </if>
+      <if test="cRegistertime != null">
+        c_registertime,
+      </if>
+      <if test="cRemake != null">
+        c_remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cUid != null">
+        #{cUid,jdbcType=INTEGER},
+      </if>
+      <if test="cType != null">
+        #{cType,jdbcType=INTEGER},
+      </if>
+      <if test="cBrand != null">
+        #{cBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="cModel != null">
+        #{cModel,jdbcType=VARCHAR},
+      </if>
+      <if test="cDescription != null">
+        #{cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="cEnginecapacity != null">
+        #{cEnginecapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="cProductiveyear != null">
+        #{cProductiveyear,jdbcType=VARCHAR},
+      </if>
+      <if test="cImagedes != null">
+        #{cImagedes,jdbcType=VARCHAR},
+      </if>
+      <if test="cTheroadoftime != null">
+        #{cTheroadoftime,jdbcType=VARCHAR},
+      </if>
+      <if test="cRoadhaul != null">
+        #{cRoadhaul,jdbcType=DOUBLE},
+      </if>
+      <if test="cRegistertime != null">
+        #{cRegistertime,jdbcType=BIGINT},
+      </if>
+      <if test="cRemake != null">
+        #{cRemake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.UCarToUser">
+    update ucartouser
+    <set>
+      <if test="cUid != null">
+        c_uid = #{cUid,jdbcType=INTEGER},
+      </if>
+      <if test="cType != null">
+        c_type = #{cType,jdbcType=INTEGER},
+      </if>
+      <if test="cBrand != null">
+        c_brand = #{cBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="cModel != null">
+        c_model = #{cModel,jdbcType=VARCHAR},
+      </if>
+      <if test="cDescription != null">
+        c_description = #{cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="cEnginecapacity != null">
+        c_enginecapacity = #{cEnginecapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="cProductiveyear != null">
+        c_productiveyear = #{cProductiveyear,jdbcType=VARCHAR},
+      </if>
+      <if test="cImagedes != null">
+        c_imagedes = #{cImagedes,jdbcType=VARCHAR},
+      </if>
+      <if test="cTheroadoftime != null">
+        c_theroadoftime = #{cTheroadoftime,jdbcType=VARCHAR},
+      </if>
+      <if test="cRoadhaul != null">
+        c_roadhaul = #{cRoadhaul,jdbcType=DOUBLE},
+      </if>
+      <if test="cRegistertime != null">
+        c_registertime = #{cRegistertime,jdbcType=BIGINT},
+      </if>
+      <if test="cRemake != null">
+        c_remake = #{cRemake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.UCarToUser">
+    update ucartouser
+    set c_uid = #{cUid,jdbcType=INTEGER},
+      c_type = #{cType,jdbcType=INTEGER},
+      c_brand = #{cBrand,jdbcType=VARCHAR},
+      c_model = #{cModel,jdbcType=VARCHAR},
+      c_description = #{cDescription,jdbcType=VARCHAR},
+      c_enginecapacity = #{cEnginecapacity,jdbcType=VARCHAR},
+      c_productiveyear = #{cProductiveyear,jdbcType=VARCHAR},
+      c_imagedes = #{cImagedes,jdbcType=VARCHAR},
+      c_theroadoftime = #{cTheroadoftime,jdbcType=VARCHAR},
+      c_roadhaul = #{cRoadhaul,jdbcType=DOUBLE},
+      c_registertime = #{cRegistertime,jdbcType=BIGINT},
+      c_remake = #{cRemake,jdbcType=VARCHAR}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+</mapper>

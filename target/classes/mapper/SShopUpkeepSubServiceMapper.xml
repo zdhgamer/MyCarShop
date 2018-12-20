@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopUpkeepSubServiceMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopUpkeepSubService">
+    <id column="ukss_id" jdbcType="INTEGER" property="ukssId" />
+    <result column="ukss_shop_id" jdbcType="INTEGER" property="ukssShopId" />
+    <result column="ukss_sts_id" jdbcType="INTEGER" property="ukssStsId" />
+    <result column="ukss_ukname" jdbcType="VARCHAR" property="ukssUkname" />
+    <result column="ukss_state" jdbcType="INTEGER" property="ukssState" />
+    <result column="ukss_createtime" jdbcType="BIGINT" property="ukssCreatetime" />
+    <result column="ukss_checktime" jdbcType="BIGINT" property="ukssChecktime" />
+    <result column="ukss_checkstate" jdbcType="INTEGER" property="ukssCheckstate" />
+    <result column="ukss_checkdes" jdbcType="VARCHAR" property="ukssCheckdes" />
+    <result column="ukss_money" jdbcType="BIGINT" property="ukssMoney" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ukss_id, ukss_shop_id, ukss_sts_id, ukss_ukname, ukss_state, ukss_createtime, ukss_checktime, 
+    ukss_checkstate, ukss_checkdes, ukss_money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopupkeepsubservice
+    where ukss_id = #{ukssId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopupkeepsubservice
+    where ukss_id = #{ukssId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopUpkeepSubService">
+    insert into sshopupkeepsubservice (ukss_id, ukss_shop_id, ukss_sts_id, 
+      ukss_ukname, ukss_state, ukss_createtime, 
+      ukss_checktime, ukss_checkstate, ukss_checkdes, 
+      ukss_money)
+    values (#{ukssId,jdbcType=INTEGER}, #{ukssShopId,jdbcType=INTEGER}, #{ukssStsId,jdbcType=INTEGER}, 
+      #{ukssUkname,jdbcType=VARCHAR}, #{ukssState,jdbcType=INTEGER}, #{ukssCreatetime,jdbcType=BIGINT}, 
+      #{ukssChecktime,jdbcType=BIGINT}, #{ukssCheckstate,jdbcType=INTEGER}, #{ukssCheckdes,jdbcType=VARCHAR}, 
+      #{ukssMoney,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopUpkeepSubService">
+    insert into sshopupkeepsubservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ukssId != null">
+        ukss_id,
+      </if>
+      <if test="ukssShopId != null">
+        ukss_shop_id,
+      </if>
+      <if test="ukssStsId != null">
+        ukss_sts_id,
+      </if>
+      <if test="ukssUkname != null">
+        ukss_ukname,
+      </if>
+      <if test="ukssState != null">
+        ukss_state,
+      </if>
+      <if test="ukssCreatetime != null">
+        ukss_createtime,
+      </if>
+      <if test="ukssChecktime != null">
+        ukss_checktime,
+      </if>
+      <if test="ukssCheckstate != null">
+        ukss_checkstate,
+      </if>
+      <if test="ukssCheckdes != null">
+        ukss_checkdes,
+      </if>
+      <if test="ukssMoney != null">
+        ukss_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ukssId != null">
+        #{ukssId,jdbcType=INTEGER},
+      </if>
+      <if test="ukssShopId != null">
+        #{ukssShopId,jdbcType=INTEGER},
+      </if>
+      <if test="ukssStsId != null">
+        #{ukssStsId,jdbcType=INTEGER},
+      </if>
+      <if test="ukssUkname != null">
+        #{ukssUkname,jdbcType=VARCHAR},
+      </if>
+      <if test="ukssState != null">
+        #{ukssState,jdbcType=INTEGER},
+      </if>
+      <if test="ukssCreatetime != null">
+        #{ukssCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="ukssChecktime != null">
+        #{ukssChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="ukssCheckstate != null">
+        #{ukssCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="ukssCheckdes != null">
+        #{ukssCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="ukssMoney != null">
+        #{ukssMoney,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopUpkeepSubService">
+    update sshopupkeepsubservice
+    <set>
+      <if test="ukssShopId != null">
+        ukss_shop_id = #{ukssShopId,jdbcType=INTEGER},
+      </if>
+      <if test="ukssStsId != null">
+        ukss_sts_id = #{ukssStsId,jdbcType=INTEGER},
+      </if>
+      <if test="ukssUkname != null">
+        ukss_ukname = #{ukssUkname,jdbcType=VARCHAR},
+      </if>
+      <if test="ukssState != null">
+        ukss_state = #{ukssState,jdbcType=INTEGER},
+      </if>
+      <if test="ukssCreatetime != null">
+        ukss_createtime = #{ukssCreatetime,jdbcType=BIGINT},
+      </if>
+      <if test="ukssChecktime != null">
+        ukss_checktime = #{ukssChecktime,jdbcType=BIGINT},
+      </if>
+      <if test="ukssCheckstate != null">
+        ukss_checkstate = #{ukssCheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="ukssCheckdes != null">
+        ukss_checkdes = #{ukssCheckdes,jdbcType=VARCHAR},
+      </if>
+      <if test="ukssMoney != null">
+        ukss_money = #{ukssMoney,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ukss_id = #{ukssId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopUpkeepSubService">
+    update sshopupkeepsubservice
+    set ukss_shop_id = #{ukssShopId,jdbcType=INTEGER},
+      ukss_sts_id = #{ukssStsId,jdbcType=INTEGER},
+      ukss_ukname = #{ukssUkname,jdbcType=VARCHAR},
+      ukss_state = #{ukssState,jdbcType=INTEGER},
+      ukss_createtime = #{ukssCreatetime,jdbcType=BIGINT},
+      ukss_checktime = #{ukssChecktime,jdbcType=BIGINT},
+      ukss_checkstate = #{ukssCheckstate,jdbcType=INTEGER},
+      ukss_checkdes = #{ukssCheckdes,jdbcType=VARCHAR},
+      ukss_money = #{ukssMoney,jdbcType=BIGINT}
+    where ukss_id = #{ukssId,jdbcType=INTEGER}
+  </update>
+
+  <!--List<SShopUpkeepSubService> selectAllByShopId(@Param("0")Integer shopId, @Param("1") Integer state)-->
+  <select id="selectAllByShopId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopupkeepsubservice
+    where ukss_shop_id = #{0} and ukss_state = #{1}
+  </select>
+
+</mapper>

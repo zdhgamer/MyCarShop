@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guojiang.dao.SShopInfoMapper">
+  <resultMap id="BaseResultMap" type="com.guojiang.bean.SShopInfo">
+    <id column="sp_id" jdbcType="INTEGER" property="spId" />
+    <result column="sp_phonenumber" jdbcType="VARCHAR" property="spPhonenumber" />
+    <result column="sp_shoppicone" jdbcType="VARCHAR" property="spShoppicone" />
+    <result column="sp_shoppictwo" jdbcType="VARCHAR" property="spShoppictwo" />
+    <result column="sp_shoppicthree" jdbcType="VARCHAR" property="spShoppicthree" />
+    <result column="sp_shopname" jdbcType="VARCHAR" property="spShopname" />
+    <result column="sp_shopaddress" jdbcType="VARCHAR" property="spShopaddress" />
+    <result column="sp_shopgetcarcondition" jdbcType="BIGINT" property="spShopgetcarcondition" />
+    <result column="sp_shopgetcarsub" jdbcType="BIGINT" property="spShopgetcarsub" />
+    <result column="sp_getcarcharge" jdbcType="BIGINT" property="spGetcarcharge" />
+    <result column="sp_shopslicensepicone" jdbcType="VARCHAR" property="spShopslicensepicone" />
+    <result column="sp_shopslicensepictwo" jdbcType="VARCHAR" property="spShopslicensepictwo" />
+    <result column="sp_lastmoney" jdbcType="BIGINT" property="spLastmoney" />
+    <result column="sp_weichataccount" jdbcType="VARCHAR" property="spWeichataccount" />
+    <result column="sp_alipayaccount" jdbcType="VARCHAR" property="spAlipayaccount" />
+    <result column="sp_owneridcardnumber" jdbcType="VARCHAR" property="spOwneridcardnumber" />
+    <result column="sp_owneridcardpicone" jdbcType="VARCHAR" property="spOwneridcardpicone" />
+    <result column="sp_owneridcardpictwo" jdbcType="VARCHAR" property="spOwneridcardpictwo" />
+    <result column="sp_shopoperationstate" jdbcType="INTEGER" property="spShopoperationstate" />
+    <result column="sp_shopstate" jdbcType="INTEGER" property="spShopstate" />
+    <result column="sp_upkeepstate" jdbcType="INTEGER" property="spUpkeepstate" />
+    <result column="sp_cosmetologystate" jdbcType="INTEGER" property="spCosmetologystate" />
+    <result column="sp_annualcheckstate" jdbcType="INTEGER" property="spAnnualcheckstate" />
+    <result column="sp_repairstate" jdbcType="INTEGER" property="spRepairstate" />
+    <result column="sp_serviceaverage" jdbcType="INTEGER" property="spServiceaverage" />
+    <result column="sp_average" jdbcType="INTEGER" property="spAverage" />
+    <result column="sp_jointime" jdbcType="BIGINT" property="spJointime" />
+    <result column="sp_longitude" jdbcType="DOUBLE" property="spLongitude" />
+    <result column="sp_latitude" jdbcType="DOUBLE" property="spLatitude" />
+    <result column="sp_lastpos" jdbcType="INTEGER" property="spLastpos" />
+    <result column="sp_totalsale" jdbcType="INTEGER" property="spTotalsale" />
+    <result column="sp_totalpos" jdbcType="INTEGER" property="spTotalpos" />
+    <result column="sp_totalsaleviolation" jdbcType="INTEGER" property="spTotalsaleviolation" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sp_id, sp_phonenumber, sp_shoppicone, sp_shoppictwo, sp_shoppicthree, sp_shopname, 
+    sp_shopaddress, sp_shopgetcarcondition, sp_shopgetcarsub, sp_getcarcharge, sp_shopslicensepicone, 
+    sp_shopslicensepictwo, sp_lastmoney, sp_weichataccount, sp_alipayaccount, sp_owneridcardnumber, 
+    sp_owneridcardpicone, sp_owneridcardpictwo, sp_shopoperationstate, sp_shopstate, 
+    sp_upkeepstate, sp_cosmetologystate, sp_annualcheckstate, sp_repairstate, sp_serviceaverage, 
+    sp_average, sp_jointime, sp_longitude, sp_latitude, sp_lastpos, sp_totalsale, sp_totalpos, 
+    sp_totalsaleviolation
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshopinfo
+    where sp_id = #{spId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshopinfo
+    where sp_id = #{spId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.guojiang.bean.SShopInfo">
+    insert into sshopinfo (sp_id, sp_phonenumber, sp_shoppicone, 
+      sp_shoppictwo, sp_shoppicthree, sp_shopname, 
+      sp_shopaddress, sp_shopgetcarcondition, sp_shopgetcarsub, 
+      sp_getcarcharge, sp_shopslicensepicone, sp_shopslicensepictwo, 
+      sp_lastmoney, sp_weichataccount, sp_alipayaccount, 
+      sp_owneridcardnumber, sp_owneridcardpicone, 
+      sp_owneridcardpictwo, sp_shopoperationstate, 
+      sp_shopstate, sp_upkeepstate, sp_cosmetologystate, 
+      sp_annualcheckstate, sp_repairstate, sp_serviceaverage, 
+      sp_average, sp_jointime, sp_longitude, 
+      sp_latitude, sp_lastpos, sp_totalsale, 
+      sp_totalpos, sp_totalsaleviolation)
+    values (#{spId,jdbcType=INTEGER}, #{spPhonenumber,jdbcType=VARCHAR}, #{spShoppicone,jdbcType=VARCHAR}, 
+      #{spShoppictwo,jdbcType=VARCHAR}, #{spShoppicthree,jdbcType=VARCHAR}, #{spShopname,jdbcType=VARCHAR}, 
+      #{spShopaddress,jdbcType=VARCHAR}, #{spShopgetcarcondition,jdbcType=BIGINT}, #{spShopgetcarsub,jdbcType=BIGINT}, 
+      #{spGetcarcharge,jdbcType=BIGINT}, #{spShopslicensepicone,jdbcType=VARCHAR}, #{spShopslicensepictwo,jdbcType=VARCHAR}, 
+      #{spLastmoney,jdbcType=BIGINT}, #{spWeichataccount,jdbcType=VARCHAR}, #{spAlipayaccount,jdbcType=VARCHAR}, 
+      #{spOwneridcardnumber,jdbcType=VARCHAR}, #{spOwneridcardpicone,jdbcType=VARCHAR}, 
+      #{spOwneridcardpictwo,jdbcType=VARCHAR}, #{spShopoperationstate,jdbcType=INTEGER}, 
+      #{spShopstate,jdbcType=INTEGER}, #{spUpkeepstate,jdbcType=INTEGER}, #{spCosmetologystate,jdbcType=INTEGER}, 
+      #{spAnnualcheckstate,jdbcType=INTEGER}, #{spRepairstate,jdbcType=INTEGER}, #{spServiceaverage,jdbcType=INTEGER}, 
+      #{spAverage,jdbcType=INTEGER}, #{spJointime,jdbcType=BIGINT}, #{spLongitude,jdbcType=DOUBLE}, 
+      #{spLatitude,jdbcType=DOUBLE}, #{spLastpos,jdbcType=INTEGER}, #{spTotalsale,jdbcType=INTEGER}, 
+      #{spTotalpos,jdbcType=INTEGER}, #{spTotalsaleviolation,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guojiang.bean.SShopInfo">
+    insert into sshopinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="spId != null">
+        sp_id,
+      </if>
+      <if test="spPhonenumber != null">
+        sp_phonenumber,
+      </if>
+      <if test="spShoppicone != null">
+        sp_shoppicone,
+      </if>
+      <if test="spShoppictwo != null">
+        sp_shoppictwo,
+      </if>
+      <if test="spShoppicthree != null">
+        sp_shoppicthree,
+      </if>
+      <if test="spShopname != null">
+        sp_shopname,
+      </if>
+      <if test="spShopaddress != null">
+        sp_shopaddress,
+      </if>
+      <if test="spShopgetcarcondition != null">
+        sp_shopgetcarcondition,
+      </if>
+      <if test="spShopgetcarsub != null">
+        sp_shopgetcarsub,
+      </if>
+      <if test="spGetcarcharge != null">
+        sp_getcarcharge,
+      </if>
+      <if test="spShopslicensepicone != null">
+        sp_shopslicensepicone,
+      </if>
+      <if test="spShopslicensepictwo != null">
+        sp_shopslicensepictwo,
+      </if>
+      <if test="spLastmoney != null">
+        sp_lastmoney,
+      </if>
+      <if test="spWeichataccount != null">
+        sp_weichataccount,
+      </if>
+      <if test="spAlipayaccount != null">
+        sp_alipayaccount,
+      </if>
+      <if test="spOwneridcardnumber != null">
+        sp_owneridcardnumber,
+      </if>
+      <if test="spOwneridcardpicone != null">
+        sp_owneridcardpicone,
+      </if>
+      <if test="spOwneridcardpictwo != null">
+        sp_owneridcardpictwo,
+      </if>
+      <if test="spShopoperationstate != null">
+        sp_shopoperationstate,
+      </if>
+      <if test="spShopstate != null">
+        sp_shopstate,
+      </if>
+      <if test="spUpkeepstate != null">
+        sp_upkeepstate,
+      </if>
+      <if test="spCosmetologystate != null">
+        sp_cosmetologystate,
+      </if>
+      <if test="spAnnualcheckstate != null">
+        sp_annualcheckstate,
+      </if>
+      <if test="spRepairstate != null">
+        sp_repairstate,
+      </if>
+      <if test="spServiceaverage != null">
+        sp_serviceaverage,
+      </if>
+      <if test="spAverage != null">
+        sp_average,
+      </if>
+      <if test="spJointime != null">
+        sp_jointime,
+      </if>
+      <if test="spLongitude != null">
+        sp_longitude,
+      </if>
+      <if test="spLatitude != null">
+        sp_latitude,
+      </if>
+      <if test="spLastpos != null">
+        sp_lastpos,
+      </if>
+      <if test="spTotalsale != null">
+        sp_totalsale,
+      </if>
+      <if test="spTotalpos != null">
+        sp_totalpos,
+      </if>
+      <if test="spTotalsaleviolation != null">
+        sp_totalsaleviolation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="spId != null">
+        #{spId,jdbcType=INTEGER},
+      </if>
+      <if test="spPhonenumber != null">
+        #{spPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppicone != null">
+        #{spShoppicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppictwo != null">
+        #{spShoppictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppicthree != null">
+        #{spShoppicthree,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopname != null">
+        #{spShopname,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopaddress != null">
+        #{spShopaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopgetcarcondition != null">
+        #{spShopgetcarcondition,jdbcType=BIGINT},
+      </if>
+      <if test="spShopgetcarsub != null">
+        #{spShopgetcarsub,jdbcType=BIGINT},
+      </if>
+      <if test="spGetcarcharge != null">
+        #{spGetcarcharge,jdbcType=BIGINT},
+      </if>
+      <if test="spShopslicensepicone != null">
+        #{spShopslicensepicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopslicensepictwo != null">
+        #{spShopslicensepictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spLastmoney != null">
+        #{spLastmoney,jdbcType=BIGINT},
+      </if>
+      <if test="spWeichataccount != null">
+        #{spWeichataccount,jdbcType=VARCHAR},
+      </if>
+      <if test="spAlipayaccount != null">
+        #{spAlipayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardnumber != null">
+        #{spOwneridcardnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardpicone != null">
+        #{spOwneridcardpicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardpictwo != null">
+        #{spOwneridcardpictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopoperationstate != null">
+        #{spShopoperationstate,jdbcType=INTEGER},
+      </if>
+      <if test="spShopstate != null">
+        #{spShopstate,jdbcType=INTEGER},
+      </if>
+      <if test="spUpkeepstate != null">
+        #{spUpkeepstate,jdbcType=INTEGER},
+      </if>
+      <if test="spCosmetologystate != null">
+        #{spCosmetologystate,jdbcType=INTEGER},
+      </if>
+      <if test="spAnnualcheckstate != null">
+        #{spAnnualcheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="spRepairstate != null">
+        #{spRepairstate,jdbcType=INTEGER},
+      </if>
+      <if test="spServiceaverage != null">
+        #{spServiceaverage,jdbcType=INTEGER},
+      </if>
+      <if test="spAverage != null">
+        #{spAverage,jdbcType=INTEGER},
+      </if>
+      <if test="spJointime != null">
+        #{spJointime,jdbcType=BIGINT},
+      </if>
+      <if test="spLongitude != null">
+        #{spLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="spLatitude != null">
+        #{spLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="spLastpos != null">
+        #{spLastpos,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalsale != null">
+        #{spTotalsale,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalpos != null">
+        #{spTotalpos,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalsaleviolation != null">
+        #{spTotalsaleviolation,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojiang.bean.SShopInfo">
+    update sshopinfo
+    <set>
+      <if test="spPhonenumber != null">
+        sp_phonenumber = #{spPhonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppicone != null">
+        sp_shoppicone = #{spShoppicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppictwo != null">
+        sp_shoppictwo = #{spShoppictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spShoppicthree != null">
+        sp_shoppicthree = #{spShoppicthree,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopname != null">
+        sp_shopname = #{spShopname,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopaddress != null">
+        sp_shopaddress = #{spShopaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopgetcarcondition != null">
+        sp_shopgetcarcondition = #{spShopgetcarcondition,jdbcType=BIGINT},
+      </if>
+      <if test="spShopgetcarsub != null">
+        sp_shopgetcarsub = #{spShopgetcarsub,jdbcType=BIGINT},
+      </if>
+      <if test="spGetcarcharge != null">
+        sp_getcarcharge = #{spGetcarcharge,jdbcType=BIGINT},
+      </if>
+      <if test="spShopslicensepicone != null">
+        sp_shopslicensepicone = #{spShopslicensepicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopslicensepictwo != null">
+        sp_shopslicensepictwo = #{spShopslicensepictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spLastmoney != null">
+        sp_lastmoney = #{spLastmoney,jdbcType=BIGINT},
+      </if>
+      <if test="spWeichataccount != null">
+        sp_weichataccount = #{spWeichataccount,jdbcType=VARCHAR},
+      </if>
+      <if test="spAlipayaccount != null">
+        sp_alipayaccount = #{spAlipayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardnumber != null">
+        sp_owneridcardnumber = #{spOwneridcardnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardpicone != null">
+        sp_owneridcardpicone = #{spOwneridcardpicone,jdbcType=VARCHAR},
+      </if>
+      <if test="spOwneridcardpictwo != null">
+        sp_owneridcardpictwo = #{spOwneridcardpictwo,jdbcType=VARCHAR},
+      </if>
+      <if test="spShopoperationstate != null">
+        sp_shopoperationstate = #{spShopoperationstate,jdbcType=INTEGER},
+      </if>
+      <if test="spShopstate != null">
+        sp_shopstate = #{spShopstate,jdbcType=INTEGER},
+      </if>
+      <if test="spUpkeepstate != null">
+        sp_upkeepstate = #{spUpkeepstate,jdbcType=INTEGER},
+      </if>
+      <if test="spCosmetologystate != null">
+        sp_cosmetologystate = #{spCosmetologystate,jdbcType=INTEGER},
+      </if>
+      <if test="spAnnualcheckstate != null">
+        sp_annualcheckstate = #{spAnnualcheckstate,jdbcType=INTEGER},
+      </if>
+      <if test="spRepairstate != null">
+        sp_repairstate = #{spRepairstate,jdbcType=INTEGER},
+      </if>
+      <if test="spServiceaverage != null">
+        sp_serviceaverage = #{spServiceaverage,jdbcType=INTEGER},
+      </if>
+      <if test="spAverage != null">
+        sp_average = #{spAverage,jdbcType=INTEGER},
+      </if>
+      <if test="spJointime != null">
+        sp_jointime = #{spJointime,jdbcType=BIGINT},
+      </if>
+      <if test="spLongitude != null">
+        sp_longitude = #{spLongitude,jdbcType=DOUBLE},
+      </if>
+      <if test="spLatitude != null">
+        sp_latitude = #{spLatitude,jdbcType=DOUBLE},
+      </if>
+      <if test="spLastpos != null">
+        sp_lastpos = #{spLastpos,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalsale != null">
+        sp_totalsale = #{spTotalsale,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalpos != null">
+        sp_totalpos = #{spTotalpos,jdbcType=INTEGER},
+      </if>
+      <if test="spTotalsaleviolation != null">
+        sp_totalsaleviolation = #{spTotalsaleviolation,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sp_id = #{spId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guojiang.bean.SShopInfo">
+    update sshopinfo
+    set sp_phonenumber = #{spPhonenumber,jdbcType=VARCHAR},
+      sp_shoppicone = #{spShoppicone,jdbcType=VARCHAR},
+      sp_shoppictwo = #{spShoppictwo,jdbcType=VARCHAR},
+      sp_shoppicthree = #{spShoppicthree,jdbcType=VARCHAR},
+      sp_shopname = #{spShopname,jdbcType=VARCHAR},
+      sp_shopaddress = #{spShopaddress,jdbcType=VARCHAR},
+      sp_shopgetcarcondition = #{spShopgetcarcondition,jdbcType=BIGINT},
+      sp_shopgetcarsub = #{spShopgetcarsub,jdbcType=BIGINT},
+      sp_getcarcharge = #{spGetcarcharge,jdbcType=BIGINT},
+      sp_shopslicensepicone = #{spShopslicensepicone,jdbcType=VARCHAR},
+      sp_shopslicensepictwo = #{spShopslicensepictwo,jdbcType=VARCHAR},
+      sp_lastmoney = #{spLastmoney,jdbcType=BIGINT},
+      sp_weichataccount = #{spWeichataccount,jdbcType=VARCHAR},
+      sp_alipayaccount = #{spAlipayaccount,jdbcType=VARCHAR},
+      sp_owneridcardnumber = #{spOwneridcardnumber,jdbcType=VARCHAR},
+      sp_owneridcardpicone = #{spOwneridcardpicone,jdbcType=VARCHAR},
+      sp_owneridcardpictwo = #{spOwneridcardpictwo,jdbcType=VARCHAR},
+      sp_shopoperationstate = #{spShopoperationstate,jdbcType=INTEGER},
+      sp_shopstate = #{spShopstate,jdbcType=INTEGER},
+      sp_upkeepstate = #{spUpkeepstate,jdbcType=INTEGER},
+      sp_cosmetologystate = #{spCosmetologystate,jdbcType=INTEGER},
+      sp_annualcheckstate = #{spAnnualcheckstate,jdbcType=INTEGER},
+      sp_repairstate = #{spRepairstate,jdbcType=INTEGER},
+      sp_serviceaverage = #{spServiceaverage,jdbcType=INTEGER},
+      sp_average = #{spAverage,jdbcType=INTEGER},
+      sp_jointime = #{spJointime,jdbcType=BIGINT},
+      sp_longitude = #{spLongitude,jdbcType=DOUBLE},
+      sp_latitude = #{spLatitude,jdbcType=DOUBLE},
+      sp_lastpos = #{spLastpos,jdbcType=INTEGER},
+      sp_totalsale = #{spTotalsale,jdbcType=INTEGER},
+      sp_totalpos = #{spTotalpos,jdbcType=INTEGER},
+      sp_totalsaleviolation = #{spTotalsaleviolation,jdbcType=INTEGER}
+    where sp_id = #{spId,jdbcType=INTEGER}
+  </update>
+
+  <!--selectByPhoneNumber 按手机号超找商家-->
+  <select id="selectByPhoneNumber" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sshopinfo
+    where sp_phonenumber = #{phoneNumber,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
