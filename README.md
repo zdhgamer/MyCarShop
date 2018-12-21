@@ -22,3 +22,20 @@ log4j2日志配置集成
 测试代码集成
 文件上传集成
 ....
+# Tomcat内存配置
+服务器内存 1G
+    set JAVA_OPTS=-Xms256m -Xmx512m
+
+服务器内存 8G，一般 PermSize 配置是主要保证系统能稳定起来就行：
+
+   SET "JAVA_OPTS=-server-Xms6144m -Xmx6144m -XX:NewSize=1024m -XX:MaxNewSize=2048m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2-XX:+DisableExplicitGC" 
+
+服务器内存 16G，一般 PermSize 配置是主要保证系统能稳定起来就行：
+
+    SET "JAVA_OPTS=-server -Xms13312m -Xmx13312m -XX:NewSize=3072m -XX:MaxNewSize=4096m -XX:PermSize=512m -XX:MaxPermSize=512m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2-XX:+DisableExplicitGC"
+
+服务器内存 32G，一般 PermSize 配置是主要保证系统能稳定起来就行：
+
+    SET "JAVA_OPTS=-server-Xms29696m -Xmx29696m -XX:NewSize=6144m -XX:MaxNewSize=9216m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:MaxTenuringThreshold=10 -XX:NewRatio=2-XX:+DisableExplicitGC"
+
+ 注意：如果服务器内存是8G，catalina.bat 中配置了16G的配置，将造成Tomcat无法启动。
